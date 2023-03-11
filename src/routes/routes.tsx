@@ -1,15 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import { CertificateDetailComponent } from "../components/certificates/CertificateDetailComponent";
-import { CertificateListComponent } from "../components/certificates/CertificateListComponent";
+import { CertificatesView } from "../views/CertificatesView";
 import { ClaimCreatedView } from "../views/ClaimCreatedView";
 
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <CertificateListComponent></CertificateListComponent>,
+      element: <CertificatesView></CertificatesView>,
     },{
 path: "/certificates",
-        element: <CertificateListComponent></CertificateListComponent>,
+        element: <CertificatesView></CertificatesView>,
       }, {
         path: "/create-claim",
         element: <ClaimCreatedView></ClaimCreatedView>,

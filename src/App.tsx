@@ -1,17 +1,14 @@
-import * as React from "react"
 import {
   ChakraProvider,
   Box,
-  Grid,
   extendTheme,
+  SimpleGrid,
   Container,
-  Flex,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
-import { Steps } from "chakra-ui-steps"
-import { RouterProvider } from 'react-router-dom';
-import router from './routes/routes';
+} from "@chakra-ui/react";
+import { StepsTheme as Steps } from "chakra-ui-steps";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/routes";
+import Navbar from "./components/NavBar/Navbar";
 const theme = extendTheme({
   components: {
     Steps,
@@ -20,11 +17,12 @@ const theme = extendTheme({
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid p={1}>
-        <ColorModeSwitcher justifySelf="flex-end" />
+    <Box m={5}>
+      <Navbar></Navbar>
+
+      <Box mt={5}>
         <RouterProvider router={router}></RouterProvider>
-      </Grid>     
+      </Box>
     </Box>
   </ChakraProvider>
-)
+);
