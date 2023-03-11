@@ -1,44 +1,27 @@
-import { Box, Card, CardBody, CardHeader, Flex, FormControl, FormLabel, Heading, Select, Stack, StackDivider } from "@chakra-ui/react";
+import { Box, Card, CardBody, CardHeader, Flex, FormControl, FormLabel, Heading, Input, Select, Stack, StackDivider, Textarea } from "@chakra-ui/react";
 import { Text } from '@chakra-ui/react'
 import LoremIpsum from "react-lorem-ipsum";
 
 export const ClaimDetailComponent = () => (
   <Card>  
     <CardBody>
-      <Stack divider={<StackDivider />} spacing='4'>
-       
-      <FormControl isRequired>
-        <Flex>
-          <Box w={10}>
-          <FormLabel>Coberturas: </FormLabel>
-          </Box>
-          <Box w={40}><Select placeholder='Seleccione cobertura'>
-  <option value='option1'>Cobertura 1</option>
-  <option value='option2'>Cobertura 2</option>
-  <option value='option3'>Cobertura 3</option>
-</Select></Box>
-        </Flex>
-  
+      <Stack divider={<StackDivider />} spacing='4'>   
+     
+      <FormControl>
+  <FormLabel htmlFor='coverageId'>Cobertura</FormLabel>
+  <Select id='coverageId' placeholder='Selecciona una cobertura'>
+    <option>Coverage 1</option>
+    <option>Coverage 2</option>
+  </Select>
 </FormControl>
-        <Box>
-               
-        </Box>
-        <Box>
-          <Heading size='xs' textTransform='uppercase'>
-            Fecha de ocurrencia
-          </Heading>
-          <Text pt='2' fontSize='sm'>
-            2023/03/10
-          </Text>
-        </Box>
-        <Box>
-          <Heading size='xs' textTransform='uppercase'>
-            Detalle del siniestro
-          </Heading>
-          <Text pt='2' fontSize='sm'>
-          <LoremIpsum p={1} />
-          </Text>
-        </Box>
+<FormControl>
+  <FormLabel htmlFor='dateTimeId'>Fecha de ocurrencia</FormLabel>
+  <Input placeholder='Fecha de ocurrencia' type='date' size='xs' />
+</FormControl>
+<FormControl>
+  <FormLabel htmlFor='observation'>Detalle del siniestro</FormLabel>
+  <Textarea placeholder='Ingrese detalle sobre el siniestro' size='xs' />
+</FormControl>
       </Stack>
     </CardBody>
   </Card>

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Flex } from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
 import { Step, Steps, useSteps } from 'chakra-ui-steps';
 import LoremIpsum from 'react-lorem-ipsum';
 import { ClaimDetailComponent } from '../claims/ClaimDetailComponent';
