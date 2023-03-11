@@ -66,14 +66,14 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Link
+          <NavLink
             textAlign={useColorModeValue("center", "center")}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-            href={"/"}
+            to="/"
           >
             <Image src="../assets/assurant.png" w={10}></Image>
-          </Link>
+          </NavLink>
           <ColorModeSwitcher justifySelf="flex-end" />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
