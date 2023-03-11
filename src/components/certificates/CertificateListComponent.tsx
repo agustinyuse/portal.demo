@@ -107,7 +107,7 @@ export const CertificateListComponent = () => (
           Seguros disponibles de contratar
         </Heading>
 
-        <SimpleGrid columns={{ base: 1, sm: 1, md: 2, lg: 2 }} spacing={2}>
+        <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
           {certsAvaliable.map((cert) => (
             <CertificateDetailCardComponent
               key={cert.id}
