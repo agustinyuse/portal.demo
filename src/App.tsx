@@ -9,8 +9,8 @@ import { StepsTheme as Steps } from "chakra-ui-steps";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/routes";
 import Navbar from "./components/NavBar/Navbar";
-import { CertificatesView } from "./pages/CertificatesView";
-import { ClaimCreatedView } from "./pages/ClaimCreatedView";
+import { CertificatesView } from "./pages/Certificates";
+import { ClaimCreatedView } from "./pages/Claims";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const theme = extendTheme({
