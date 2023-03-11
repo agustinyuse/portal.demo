@@ -1,5 +1,5 @@
 import { CertificateDetailCardComponent } from "./CertificateDetailCardComponent";
-import { Box, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 
 const certs: any[] = [
   {
@@ -83,9 +83,10 @@ export const CertificateListComponent = () => (
   <>
     <SimpleGrid spacing={30}>
       <Box>
-        <Text fontSize={30} align={"left"} m={2}>
+        <Heading as="h3" size="lg" m={2}>
           Seguros contratados
-        </Text>
+        </Heading>
+
         <SimpleGrid columns={{ base: 1, sm: 1, md: 2, lg: 2 }} spacing={2}>
           {certs.map((cert) => (
             <CertificateDetailCardComponent
@@ -102,9 +103,10 @@ export const CertificateListComponent = () => (
       </Box>
 
       <Box>
-        <Text fontSize={30} align={"left"} m={2}>
+        <Heading as="h3" size="lg" m={2}>
           Seguros disponibles de contratar
-        </Text>
+        </Heading>
+
         <SimpleGrid columns={{ base: 1, sm: 1, md: 2, lg: 2 }} spacing={2}>
           {certsAvaliable.map((cert) => (
             <CertificateDetailCardComponent

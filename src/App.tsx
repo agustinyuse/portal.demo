@@ -21,17 +21,17 @@ const theme = extendTheme({
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box m={5}>
-      <Navbar></Navbar>
-      <Box mt={5}>
-        <BrowserRouter>
+    <BrowserRouter>
+      <Box m={5}>
+        <Navbar></Navbar>
+        <Box mt={5}>
           <Routes>
             <Route path="/" element={<CertificatesView />} />
             <Route path="/certificates" element={<CertificatesView />} />
             <Route path="/create-claim" element={<ClaimCreatedView />} />
           </Routes>
-        </BrowserRouter>
+        </Box>
       </Box>
-    </Box>
+    </BrowserRouter>
   </ChakraProvider>
 );

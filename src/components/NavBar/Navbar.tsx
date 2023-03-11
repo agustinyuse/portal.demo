@@ -13,14 +13,16 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { Image } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 
 const Links = [
-  { name: "Certificados", linkRef: "certificates" },
-  { name: "Cargar siniestro", linkRef: "create-claim" },
+  { name: "Certificados", to: "certificates" },
+  { name: "Cargar siniestro", to: "create-claim" },
 ];
 
 const NavLink = ({ children, ...props }: any) => (
   <Link
+    as={RouterLink}
     px={2}
     py={1}
     rounded={"md"}
@@ -72,15 +74,15 @@ export default function Navbar() {
           >
             <Image src="../assets/assurant.png" w={10}></Image>
           </Link>
+          <ColorModeSwitcher justifySelf="flex-end" />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <Stack direction={"row"} spacing={4}>
-              <ColorModeSwitcher justifySelf="flex-end" />
               {Links.map((link: any, i: number) => (
-                <NavLink key={i} href={link.linkRef}>
+                <NavLink key={link.name} to={link.to}>
                   {link.name}
                 </NavLink>
-              ))}{" "}
+              ))}
             </Stack>
           </Flex>
         </Flex>
@@ -111,9 +113,8 @@ const MobileNav = ({ Links }: any) => {
       p={4}
       display={{ md: "none" }}
     >
-      <ColorModeSwitcher justifySelf="flex-end" />
       {Links.map((link: any, i: number) => (
-        <NavLink key={i} href={link.linkRef}>
+        <NavLink key={link.name} to={link.to}>
           {link.name}
         </NavLink>
       ))}
