@@ -5,7 +5,6 @@ const { Provider } = AuthContext;
 
 export const AuthProvider = ({ children }: any) => {
   const isLoggedIn = () => {
-    console.log("pasa por aqui");
     if (localStorage.getItem("auth")) return true;
     return false;
   };
@@ -24,14 +23,14 @@ export const AuthProvider = ({ children }: any) => {
     }*/
 
     localStorage.setItem("auth", "token");
-    window.location.href = "/certificates";
+    window.location.replace("/certificates");
 
     return "token";
   };
 
   const logout = () => {
     localStorage.removeItem("auth");
-    window.location.href = "/login";
+    window.location.replace("/login");
   };
 
   //const getUserInformation = () => jwt_decode(state.jwt);
