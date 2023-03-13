@@ -17,6 +17,7 @@ import {
   FormLabel,
   Heading,
   IconButton,
+  Link,
   Select,
   SimpleGrid,
   Stack,
@@ -24,6 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { Text, Image } from "@chakra-ui/react";
 import LoremIpsum from "react-lorem-ipsum";
+import { Link as RouterLink } from "react-router-dom";
 
 interface CertificateDetail {
   dealer: string;
@@ -86,15 +88,17 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
               fontSize="20px"
               icon={<CloseIcon />}
             />
-            <IconButton
-              size={"sm"}
-              ml={2}
-              variant="outline"
-              colorScheme="teal"
-              aria-label="Call Sage"
-              fontSize="20px"
-              icon={<SmallAddIcon />}
-            />
+            <Link as={RouterLink} to="/create-claim">
+              <IconButton
+                size={"sm"}
+                ml={2}
+                variant="outline"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="20px"
+                icon={<SmallAddIcon />}
+              />
+            </Link>
           </Box>
         </SimpleGrid>
       </CardBody>

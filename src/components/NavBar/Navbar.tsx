@@ -15,10 +15,7 @@ import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { Image } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
-const Links = [
-  { name: "Certificados", to: "certificates" },
-  { name: "Cargar siniestro", to: "create-claim" },
-];
+const Links = [{ name: "Certificados", to: "certificates" }];
 
 const NavLink = ({ children, ...props }: any) => (
   <Link
