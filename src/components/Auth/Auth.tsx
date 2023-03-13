@@ -107,7 +107,12 @@ export const AuthComponent = () => {
                     </Button>
                   </HStack>
                   <Stack spacing="6" mt={5}>
-                    <Button colorScheme="green" bg={"green.500"} color="white">
+                    <Button
+                      colorScheme="green"
+                      bg={"green.500"}
+                      color="white"
+                      onClick={() => login()}
+                    >
                       Iniciar Sesión
                     </Button>
                   </Stack>
