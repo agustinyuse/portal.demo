@@ -88,7 +88,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
               fontSize="20px"
               icon={<CloseIcon />}
             />
-            <Link as={RouterLink} to={`${cert.certNumber}/create-claim`}>
+            <Link as={RouterLink} to={`${cert.certNumber}/createclaim`}>
               <IconButton
                 size={"sm"}
                 ml={2}

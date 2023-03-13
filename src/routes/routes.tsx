@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <CertificatesView></CertificatesView>,
   },
   {
-    path: "/certificates/{id}/create-claim",
+    path: "/certificates/:id/create-claim",
     element: <ClaimCreatedView></ClaimCreatedView>,
   },
 ]);

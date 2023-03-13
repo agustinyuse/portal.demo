@@ -67,7 +67,7 @@ export default function Navbar() {
             textAlign={useColorModeValue("center", "center")}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-            to="/"
+            to="/certificates"
           >
             <Image src="../assets/assurant.png" w={10}></Image>
           </NavLink>
