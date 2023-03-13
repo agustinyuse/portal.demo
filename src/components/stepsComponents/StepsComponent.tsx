@@ -1,11 +1,18 @@
-import { Box, Button, Flex } from '@chakra-ui/react';
-import { Step, Steps, useSteps } from 'chakra-ui-steps';
-import LoremIpsum from 'react-lorem-ipsum';
-import { ClaimDetailComponent } from '../claims/ClaimDetailComponent';
+import { Box, Button, Flex } from "@chakra-ui/react";
+import { Step, Steps, useSteps } from "chakra-ui-steps";
+import LoremIpsum from "react-lorem-ipsum";
+import { ClaimCoverageDocComponent } from "../claims/ClaimCoverageDocComponent";
+import { ClaimDetailComponent } from "../claims/ClaimDetailComponent";
 
 const claimDetailComponent = (
   <Box mt={5}>
-<ClaimDetailComponent></ClaimDetailComponent>
+    <ClaimDetailComponent></ClaimDetailComponent>
+  </Box>
+);
+
+const claimCoverageDocComponent = (
+  <Box mt={5}>
+    <ClaimCoverageDocComponent></ClaimCoverageDocComponent>
   </Box>
 );
 
@@ -16,9 +23,9 @@ const content = (
 );
 
 const steps = [
-  { label: 'Detalle del siniestro', content: claimDetailComponent},
-  { label: 'Completar documentación', content },
-  { label: 'Resúmen siniestro', content },
+  { label: "Detalle del siniestro", content: claimDetailComponent },
+  { label: "Completar documentación", content: claimCoverageDocComponent },
+  { label: "Resúmen siniestro", content },
 ];
 
 export const ClaimSteps = () => {
@@ -53,7 +60,7 @@ export const ClaimSteps = () => {
             Prev
           </Button>
           <Button size="sm" onClick={nextStep}>
-            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            {activeStep === steps.length - 1 ? "Finish" : "Next"}
           </Button>
         </Flex>
       )}
