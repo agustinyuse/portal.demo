@@ -29,7 +29,10 @@ export const App = () => (
           <Routes>
             <Route path="/" element={<CertificatesView />} />
             <Route path="/certificates" element={<CertificatesView />} />
-            <Route path="/create-claim" element={<ClaimCreatedView />} />
+            <Route
+              path="/certificates/:id/create-claim"
+              element={<ClaimCreatedView />}
+            />
           </Routes>
         </Box>
         <Footer></Footer>
