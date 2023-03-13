@@ -2,17 +2,24 @@ import { Box, Button, Flex } from "@chakra-ui/react";
 import { Step, Steps, useSteps } from "chakra-ui-steps";
 import LoremIpsum from "react-lorem-ipsum";
 import { ClaimCoverageDocComponent } from "../claims/ClaimCoverageDocComponent";
+import { ClaimCreateComponent } from "../claims/ClaimCreateComponent";
 import { ClaimDetailComponent } from "../claims/ClaimDetailComponent";
 
-const claimDetailComponent = (
+const claimCreateComponent = (
   <Box mt={5}>
-    <ClaimDetailComponent></ClaimDetailComponent>
+    <ClaimCreateComponent></ClaimCreateComponent>
   </Box>
 );
 
 const claimCoverageDocComponent = (
   <Box mt={5}>
     <ClaimCoverageDocComponent></ClaimCoverageDocComponent>
+  </Box>
+);
+
+const claimDetailComponent = (
+  <Box mt={5}>
+    <ClaimDetailComponent></ClaimDetailComponent>
   </Box>
 );
 
@@ -23,9 +30,9 @@ const content = (
 );
 
 const steps = [
-  { label: "Detalle del siniestro", content: claimDetailComponent },
+  { label: "Detalle del siniestro", content: claimCreateComponent },
   { label: "Completar documentación", content: claimCoverageDocComponent },
-  { label: "Resúmen siniestro", content },
+  { label: "Resúmen siniestro", content: claimDetailComponent },
 ];
 
 export const ClaimSteps = () => {
