@@ -9,20 +9,25 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
+import { useAuth } from "../../contexts/Auth";
 
-export const UserPresentationComponent = () => (
-  <Card align="left">
-    <CardHeader>
-      <Heading size="md"> Hola Juan!</Heading>
-    </CardHeader>
-    <CardBody>
-      <Text align={"left"}>
-        En Assurant protegemos lo que más importa. En esta sección podes
-        gestionar tus seguros.
-      </Text>
-    </CardBody>
-    <CardFooter>
-      <Button colorScheme="blue">View here</Button>
-    </CardFooter>
-  </Card>
-);
+export const UserPresentationComponent = () => {
+  const { getUserInformation } = useAuth();
+
+  return (
+    <Card align="left">
+      <CardHeader>
+        <Heading size="md"> Hola {getUserInformation()}!</Heading>
+      </CardHeader>
+      <CardBody>
+        <Text align={"left"}>
+          En Assurant protegemos lo que más importa. En esta sección podes
+          gestionar tus seguros.
+        </Text>
+      </CardBody>
+      <CardFooter>
+        <Button colorScheme="blue">View here</Button>
+      </CardFooter>
+    </Card>
+  );
+};

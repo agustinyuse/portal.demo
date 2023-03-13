@@ -13,7 +13,8 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { Image } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import { useAuth } from "../../contexts/Auth";
 
 const Links = [{ name: "Certificados", to: "certificates" }];
 
@@ -35,6 +36,8 @@ const NavLink = ({ children, ...props }: any) => (
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { logout, isLoggedIn } = useAuth();
+
   return (
     <Box>
       <Flex
@@ -90,9 +93,26 @@ export default function Navbar() {
           direction={"row"}
           spacing={6}
         >
-          <Button variant="solid" colorScheme="blue" size="md">
-            Sign Up
-          </Button>
+          {isLoggedIn() && (
+            <Button
+              variant="solid"
+              colorScheme="blue"
+              size="md"
+              onClick={() => logout()}
+            >
+              Logout
+            </Button>
+          )}
+          {!isLoggedIn() && (
+            <Button
+              variant="solid"
+              colorScheme="blue"
+              size="md"
+              onClick={() => logout()}
+            >
+              Sign Up
+            </Button>
+          )}
         </Stack>
       </Flex>
 
