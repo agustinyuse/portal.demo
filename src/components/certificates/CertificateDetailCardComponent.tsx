@@ -65,13 +65,13 @@ export const CertificateDetailCardComponent = ({...children}: CertificateDetail 
                   textAlign="center"
                 />
               </Heading>
-              <Text fontSize="md" py={2} textAlign={"left"}>
+              <Text fontSize="md" py={1} textAlign={"left"}>
                 Producto: {children.productName}
               </Text>
-              <Text fontSize="md" py={2} textAlign={"left"}>
+              <Text fontSize="md" py={1} textAlign={"left"}>
                 Poliza: {children.policyNumber} Certificado: {children.certNumber}
               </Text>
-              <Text fontSize="md" py={2} textAlign={"left"}>
+              <Text fontSize="md" py={1} textAlign={"left"}>
                 <Badge colorScheme="green">{children.state}</Badge> Vigencia:{" "}
                 {children.vigencia}
               </Text>
@@ -129,7 +129,7 @@ export const CertificateDetailCardComponent = ({...children}: CertificateDetail 
                       textAlign={"left"}
                       fontStyle={"italic"}
                     >
-                      Nro Reclamo: <Link color={"blue.400"}># {children.claimNumber}</Link>
+                      Nro Reclamo: <Link color={"blue.400"}>#{children.claimNumber}</Link>
                     </Text>
                     <Text
                       fontSize="md"
