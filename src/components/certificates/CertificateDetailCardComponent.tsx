@@ -56,42 +56,26 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
     <Stack>
       <CardBody>
         <SimpleGrid spacing={2}>
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
-          <Box justifyContent={"left"}>
-            <Heading size="md" textAlign={"left"}>
-              Banco Galicia
-            </Heading>
-            <Text fontSize="md" py={1} textAlign={"left"}>
-              Producto: {cert.productName}
-            </Text>
-            <Text fontSize="md" py={1} textAlign={"left"}>
-              Poliza: {cert.policyNumber} Certificado: {cert.certNumber}
-            </Text>
-            <Text fontSize="md" py={1} textAlign={"left"}>
-              <Badge colorScheme="green">{cert.state}</Badge> Vigencia:{" "}
-              {cert.vigencia}
-            </Text>
-          </Box>
-          <Box display={"flex"} justifyContent={{ base: "left", md: "right" }}>
-            <IconButton
-              size={"sm"}
-              ml={2}
-              variant="outline"
-              colorScheme="teal"
-              aria-label="Call Sage"
-              fontSize="20px"
-              icon={<InfoIcon />}
-            />
-            <IconButton
-              size={"sm"}
-              ml={2}
-              variant="outline"
-              colorScheme="teal"
-              aria-label="Call Sage"
-              fontSize="20px"
-              icon={<CloseIcon />}
-            />
-            <Link as={RouterLink} to={`${cert.certNumber}/createclaim`}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
+            <Box justifyContent={"left"}>
+              <Heading size="md" textAlign={"left"}>
+                Banco Galicia
+              </Heading>
+              <Text fontSize="md" py={1} textAlign={"left"}>
+                Producto: {cert.productName}
+              </Text>
+              <Text fontSize="md" py={1} textAlign={"left"}>
+                Poliza: {cert.policyNumber} Certificado: {cert.certNumber}
+              </Text>
+              <Text fontSize="md" py={1} textAlign={"left"}>
+                <Badge colorScheme="green">{cert.state}</Badge> Vigencia:{" "}
+                {cert.vigencia}
+              </Text>
+            </Box>
+            <Box
+              display={"flex"}
+              justifyContent={{ base: "left", md: "right" }}
+            >
               <IconButton
                 size={"sm"}
                 ml={2}
@@ -99,36 +83,71 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
                 colorScheme="teal"
                 aria-label="Call Sage"
                 fontSize="20px"
-                icon={<SmallAddIcon />}
+                icon={<InfoIcon />}
               />
-            </Link>
-          </Box>
+              <IconButton
+                size={"sm"}
+                ml={2}
+                variant="outline"
+                colorScheme="teal"
+                aria-label="Call Sage"
+                fontSize="20px"
+                icon={<CloseIcon />}
+              />
+              <Link as={RouterLink} to={`${cert.certNumber}/createclaim`}>
+                <IconButton
+                  size={"sm"}
+                  ml={2}
+                  variant="outline"
+                  colorScheme="teal"
+                  aria-label="Call Sage"
+                  fontSize="20px"
+                  icon={<SmallAddIcon />}
+                />
+              </Link>
+            </Box>
+          </SimpleGrid>
+
+          <SimpleGrid>
+            <Stack spacing={3}>
+              <Alert status="warning">
+              <AlertIcon />
+                <SimpleGrid>
+                <SimpleGrid display="flex" justifyContent={"left"} spacing="2">
+                <Text
+                    fontSize="md"
+                    py={1}
+                    textAlign={"left"}
+                    fontStyle={"italic"}
+                  >
+                    Nro Reclamo:  <Link color={"blue.400"}>#20000001</Link>
+                  </Text>
+                  <Text
+                    fontSize="md"
+                    py={1}
+                    textAlign={"left"}
+                    fontStyle={"italic"}
+                  >
+                    Cobertura: Robo
+                  </Text>
+
+                </SimpleGrid>
+                <SimpleGrid spacing={1}>
+                  <Text
+                    fontSize="md"
+                    py={1}
+                    textAlign={"left"}
+                    fontStyle={"italic"}
+                  >
+                    Estado: En espera Documentación
+                  </Text>
+                </SimpleGrid>
+                </SimpleGrid>
+
+              </Alert>
+            </Stack>
+          </SimpleGrid>
         </SimpleGrid>
-
-<SimpleGrid>
-<Stack spacing={3}>
-<Alert status='warning'>
-  <AlertIcon />
-  <Box justifyContent={"left"}>
-
-          <Text fontSize="md" py={1} textAlign={"left"}>
-            Cobertura: Robo
-          </Text>
-          <Text fontSize="md" py={1} textAlign={"left"}>
-            Nro Reclamo: #20000001
-          </Text>
-          <Text fontSize="md" py={1} textAlign={"left"}>
-            Estado: En espera Documentación
-          </Text>
-          </Box>
-</Alert>
-
-
-</Stack>
-</SimpleGrid>
-        </SimpleGrid>
-
-
       </CardBody>
     </Stack>
   </Card>
