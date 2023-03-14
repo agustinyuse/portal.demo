@@ -1,5 +1,6 @@
 import { CertificateDetailCardComponent } from "./CertificateDetailCardComponent";
 import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { CertificateDetailCardAvailableComponent } from "./CertificateDetailCardAvailableComponent";
 
 const certs: any[] = [
   {
@@ -10,7 +11,10 @@ const certs: any[] = [
     certNumber: "22",
     vigencia: "10/10/2022 - 10/11/2023",
     productName: "Bolso Protegido",
-    logo:"galicia.png"
+    logo:"galicia.png",
+    claimNumber: "20000001",
+    coverageCode: "Robo",
+    statusClaim: "En espera Documentación"
   },
   {
     id: 2,
@@ -27,33 +31,9 @@ const certs: any[] = [
 const certsAvaliable: any[] = [
   {
     id: 5,
-    dealer: "Banco Galicia",
-    state: "Activo",
-    policyNumber: "190000000012",
-    certNumber: "22",
-    vigencia: "10/10/2022 - 10/11/2023",
-    productName: "Bolso Protegido",
-    paymentType: "Tarjeta de Credito",
-    premium: "550",
-    sumaAsegurada: "1500",
-    coverageDescription: "Desempleo",
-    observation: "Lo debitamos mensualmente de tu tarjeta incluida en 4566************",
-    logo:"galicia.png"
-  },
-  {
-    id: 6,
-    dealer: "Banco BBVA",
-    state: "Activo",
-    policyNumber: "190000000012",
-    certNumber: "22",
-    vigencia: "10/10/2022 - 10/11/2023",
-    productName: "Bolso Protegido",
-    paymentType: "Tarjeta de Credito",
-    premium: "550",
-    sumaAsegurada: "1500",
-    coverageDescription: "Desempleo",
-    observation: "Lo debitamos mensualmente de tu tarjeta incluida en 4566************",
-    logo:"bbva.png"
+    coverageDescription: "Te cubrimos hasta $20.000",
+    logo:"bolsoprotegido.png",
+    productName: "Bolso Protegido"
   },
 ];
 
@@ -69,13 +49,7 @@ export const CertificateListComponent = () => (
           {certs.map((cert) => (
             <CertificateDetailCardComponent
               key={cert.id}
-              dealer={cert.dealer}
-              state={cert.state}
-              policyNumber={cert.policyNumber}
-              certNumber={cert.certNumber}
-              vigencia={cert.vigencia}
-              productName={cert.productName}
-              logo={cert.logo}
+              {...cert}
             />
           ))}
         </SimpleGrid>
@@ -83,20 +57,14 @@ export const CertificateListComponent = () => (
 
       <Box>
         <Heading as="h3" size="lg" m={2}>
-          Seguros disponibles de contratar
+          Solicitar Seguro
         </Heading>
 
         <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
           {certsAvaliable.map((cert) => (
-            <CertificateDetailCardComponent
+            <CertificateDetailCardAvailableComponent
               key={cert.id}
-              dealer={cert.dealer}
-              state={cert.state}
-              policyNumber={cert.policyNumber}
-              certNumber={cert.certNumber}
-              vigencia={cert.vigencia}
-              productName={cert.productName}
-              logo={cert.logo}
+              {...cert}
             />
           ))}
         </SimpleGrid>

@@ -4,6 +4,7 @@ import {
   Box,
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   Flex,
   FormControl,
@@ -83,11 +84,14 @@ export const ClaimDetailComponent = () => (
             Estado del siniestro
           </Heading>
           <Text pt="2" fontSize="sm">
-            <Badge colorScheme="green">Reviewing claim request</Badge> /{" "}
-            <Badge>ANALYSING DOCUMENTATION</Badge>
+            <Badge colorScheme="green">Reclamo en Revisión</Badge> /{" "}
+            <Badge>En Analisis de Documentación</Badge>
           </Text>
         </Box>
       </Stack>
     </CardBody>
+    <CardFooter>
+    Ya estamos trabajando sobre tu Siniestro, revisá tu casilla de correo alejandro.rossi@assurant.com donde recibirás el avance de la gestión.
+    </CardFooter>
   </Card>
 );

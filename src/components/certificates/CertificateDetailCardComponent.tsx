@@ -37,9 +37,12 @@ interface CertificateDetail {
   state: string;
   certNumber: string;
   logo: string;
+  claimNumber?: string;
+  coverageCode?: string;
+  statusClaim?: string;
 }
 
-export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
+export const CertificateDetailCardComponent = ({...children}: CertificateDetail ) => (
   <Card
     direction={{ base: "column"}}
     overflow="hidden"
@@ -55,7 +58,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
               <Heading size="md" textAlign={"left"}>
                 <Image
                   objectFit="cover"
-                  src={"../assets/" + cert.logo}
+                  src={"../assets/" + children.logo}
                   alt="Green double couch with wooden legs"
                   borderRadius="lg"
                   w={100}
@@ -63,14 +66,14 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
                 />
               </Heading>
               <Text fontSize="md" py={1} textAlign={"left"}>
-                Producto: {cert.productName}
+                Producto: {children.productName}
               </Text>
               <Text fontSize="md" py={1} textAlign={"left"}>
-                Poliza: {cert.policyNumber} Certificado: {cert.certNumber}
+                Poliza: {children.policyNumber} Certificado: {children.certNumber}
               </Text>
               <Text fontSize="md" py={1} textAlign={"left"}>
-                <Badge colorScheme="green">{cert.state}</Badge> Vigencia:{" "}
-                {cert.vigencia}
+                <Badge colorScheme="green">{children.state}</Badge> Vigencia:{" "}
+                {children.vigencia}
               </Text>
             </Box>
             <Box
@@ -95,7 +98,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
                 fontSize="20px"
                 icon={<CloseIcon />}
               />
-              <Link as={RouterLink} to={`${cert.certNumber}/createclaim`}>
+              <Link as={RouterLink} to={`${children.certNumber}/createclaim`}>
                 <IconButton
                   size={"sm"}
                   ml={2}
@@ -109,6 +112,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
             </Box>
           </SimpleGrid>
 
+        {children.claimNumber && (
           <SimpleGrid>
             <Stack spacing={3}>
               <Alert status="warning">
@@ -125,7 +129,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
                       textAlign={"left"}
                       fontStyle={"italic"}
                     >
-                      Nro Reclamo: <Link color={"blue.400"}>#20000001</Link>
+                      Nro Reclamo: <Link color={"blue.400"}># {children.claimNumber}</Link>
                     </Text>
                     <Text
                       fontSize="md"
@@ -133,7 +137,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
                       textAlign={"left"}
                       fontStyle={"italic"}
                     >
-                      Cobertura: Robo
+                      Cobertura: {children.coverageCode}
                     </Text>
                   </SimpleGrid>
                   <SimpleGrid spacing={1}>
@@ -143,13 +147,14 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
                       textAlign={"left"}
                       fontStyle={"italic"}
                     >
-                      Estado: En espera Documentación
+                      Estado: {children.statusClaim}
                     </Text>
                   </SimpleGrid>
                 </SimpleGrid>
               </Alert>
             </Stack>
           </SimpleGrid>
+        )}
         </SimpleGrid>
       </CardBody>
     </Stack>
