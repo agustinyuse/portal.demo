@@ -100,7 +100,7 @@ export default function Navbar() {
               size="md"
               onClick={() => logout()}
             >
-              Logout
+              Cerrar sesión
             </Button>
           )}
           {!isLoggedIn() && (
@@ -110,7 +110,7 @@ export default function Navbar() {
               size="md"
               onClick={() => logout()}
             >
-              Sign Up
+              Iniciar sesión
             </Button>
           )}
         </Stack>

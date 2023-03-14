@@ -25,9 +25,6 @@ export const UserPresentationComponent = () => {
           gestionar tus seguros.
         </Text>
       </CardBody>
-      <CardFooter>
-        <Button colorScheme="blue">View here</Button>
-      </CardFooter>
     </Card>
   );
 };

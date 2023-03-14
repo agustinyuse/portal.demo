@@ -52,7 +52,7 @@ export const ClaimSteps = () => {
       {activeStep === steps.length ? (
         <Flex p={4}>
           <Button mx="auto" size="sm" onClick={reset}>
-            Reset
+            Volver
           </Button>
         </Flex>
       ) : (
@@ -64,10 +64,10 @@ export const ClaimSteps = () => {
             size="sm"
             variant="ghost"
           >
-            Prev
+            Atras
           </Button>
           <Button size="sm" onClick={nextStep}>
-            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+            {activeStep === steps.length - 1 ? "Atras" : "Siguiente"}
           </Button>
         </Flex>
       )}
