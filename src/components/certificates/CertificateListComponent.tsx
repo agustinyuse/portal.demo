@@ -10,33 +10,17 @@ const certs: any[] = [
     certNumber: "22",
     vigencia: "10/10/2022 - 10/11/2023",
     productName: "Bolso Protegido",
+    logo:"galicia.png"
   },
   {
     id: 2,
-    dealer: "Banco Galicia",
+    dealer: "Banco BBVA",
     state: "Activo",
     policyNumber: "190000000012",
     certNumber: "22",
     vigencia: "10/10/2022 - 10/11/2023",
     productName: "Bolso Protegido",
-  },
-  {
-    id: 2,
-    dealer: "Banco Galicia",
-    state: "Activo",
-    policyNumber: "190000000012",
-    certNumber: "22",
-    vigencia: "10/10/2022 - 10/11/2023",
-    productName: "Bolso Protegido",
-  },
-  {
-    id: 3,
-    dealer: "Banco Galicia",
-    state: "Activo",
-    policyNumber: "190000000012",
-    certNumber: "22",
-    vigencia: "10/10/2022 - 10/11/2023",
-    productName: "Bolso Protegido",
+    logo:"bbva.png"
   },
 ];
 
@@ -49,33 +33,27 @@ const certsAvaliable: any[] = [
     certNumber: "22",
     vigencia: "10/10/2022 - 10/11/2023",
     productName: "Bolso Protegido",
+    paymentType: "Tarjeta de Credito",
+    premium: "550",
+    sumaAsegurada: "1500",
+    coverageDescription: "Desempleo",
+    observation: "Lo debitamos mensualmente de tu tarjeta incluida en 4566************",
+    logo:"galicia.png"
   },
   {
     id: 6,
-    dealer: "Banco Galicia",
+    dealer: "Banco BBVA",
     state: "Activo",
     policyNumber: "190000000012",
     certNumber: "22",
     vigencia: "10/10/2022 - 10/11/2023",
     productName: "Bolso Protegido",
-  },
-  {
-    id: 7,
-    dealer: "Banco Galicia",
-    state: "Activo",
-    policyNumber: "190000000012",
-    certNumber: "22",
-    vigencia: "10/10/2022 - 10/11/2023",
-    productName: "Bolso Protegido",
-  },
-  {
-    id: 8,
-    dealer: "Banco Galicia",
-    state: "Activo",
-    policyNumber: "190000000012",
-    certNumber: "22",
-    vigencia: "10/10/2022 - 10/11/2023",
-    productName: "Bolso Protegido",
+    paymentType: "Tarjeta de Credito",
+    premium: "550",
+    sumaAsegurada: "1500",
+    coverageDescription: "Desempleo",
+    observation: "Lo debitamos mensualmente de tu tarjeta incluida en 4566************",
+    logo:"bbva.png"
   },
 ];
 
@@ -84,7 +62,7 @@ export const CertificateListComponent = () => (
     <SimpleGrid spacing={30}>
       <Box>
         <Heading as="h3" size="lg" m={2}>
-          Seguros contratados
+        Mis Seguros
         </Heading>
 
         <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
@@ -97,6 +75,7 @@ export const CertificateListComponent = () => (
               certNumber={cert.certNumber}
               vigencia={cert.vigencia}
               productName={cert.productName}
+              logo={cert.logo}
             />
           ))}
         </SimpleGrid>
@@ -117,6 +96,7 @@ export const CertificateListComponent = () => (
               certNumber={cert.certNumber}
               vigencia={cert.vigencia}
               productName={cert.productName}
+              logo={cert.logo}
             />
           ))}
         </SimpleGrid>

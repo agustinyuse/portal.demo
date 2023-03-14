@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }: any) => {
   };
 
   //const getUserInformation = () => jwt_decode(state.jwt);
-  const getUserInformation = () => "Juan Palotes";
+  const getUserInformation = () => "Alejandro Rossi";
 
   const setAuth = () => localStorage.setItem("auth", "token");
 
