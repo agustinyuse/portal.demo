@@ -23,8 +23,8 @@ export const ClaimCreateComponent = () => (
         <FormControl>
           <FormLabel htmlFor="coverageId">Cobertura</FormLabel>
           <Select id="coverageId" placeholder="Selecciona una cobertura">
-            <option>Coverage 1</option>
-            <option>Coverage 2</option>
+            <option>Robo Bolso Protegido</option>
+            <option>Robo Dispositivos Moviles</option>
           </Select>
         </FormControl>
         <FormControl>

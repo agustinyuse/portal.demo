@@ -67,7 +67,7 @@ export const ClaimSteps = () => {
             Atras
           </Button>
           <Button size="sm" onClick={nextStep}>
-            {activeStep === steps.length - 1 ? "Atras" : "Siguiente"}
+            {activeStep === steps.length - 1 ? "Final" : "Siguiente"}
           </Button>
         </Flex>
       )}
