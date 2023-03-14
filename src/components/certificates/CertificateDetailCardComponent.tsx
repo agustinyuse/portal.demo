@@ -5,6 +5,8 @@ import {
   SmallAddIcon,
 } from "@chakra-ui/icons";
 import {
+  Alert,
+  AlertIcon,
   Badge,
   Box,
   Button,
@@ -53,6 +55,7 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
 
     <Stack>
       <CardBody>
+        <SimpleGrid spacing={2}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
           <Box justifyContent={"left"}>
             <Heading size="md" textAlign={"left"}>
@@ -101,6 +104,31 @@ export const CertificateDetailCardComponent = (cert: CertificateDetail) => (
             </Link>
           </Box>
         </SimpleGrid>
+
+<SimpleGrid>
+<Stack spacing={3}>
+<Alert status='warning'>
+  <AlertIcon />
+  <Box justifyContent={"left"}>
+
+          <Text fontSize="md" py={1} textAlign={"left"}>
+            Cobertura: Robo
+          </Text>
+          <Text fontSize="md" py={1} textAlign={"left"}>
+            Nro Reclamo: #20000001
+          </Text>
+          <Text fontSize="md" py={1} textAlign={"left"}>
+            Estado: En espera Documentación
+          </Text>
+          </Box>
+</Alert>
+
+
+</Stack>
+</SimpleGrid>
+        </SimpleGrid>
+
+
       </CardBody>
     </Stack>
   </Card>
