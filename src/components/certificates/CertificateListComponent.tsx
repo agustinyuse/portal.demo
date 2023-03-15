@@ -1,6 +1,6 @@
-import { CertificateDetailCardComponent } from "./CertificateDetailCardComponent";
-import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import { CertificateDetailCardAvailableComponent } from "./CertificateDetailCardAvailableComponent";
+import { CertificateDetailCardComponent } from "./CertificateDetailCardComponent";
 
 const certs: any[] = [
   {

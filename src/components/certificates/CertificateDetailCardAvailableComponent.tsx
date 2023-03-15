@@ -26,9 +26,6 @@ import {
   StackDivider,
 } from "@chakra-ui/react";
 import { Text, Image } from "@chakra-ui/react";
-import LoremIpsum from "react-lorem-ipsum";
-import { Link as RouterLink } from "react-router-dom";
-import { FaShoppingBag } from "react-icons/fa";
 
 interface CertificateCardDetailAvailable {
   productName: string;
