@@ -2,6 +2,7 @@ import { CheckIcon } from "@chakra-ui/icons";
 import {
   Badge,
   Box,
+  Button,
   Card,
   CardBody,
   CardFooter,
@@ -22,7 +23,8 @@ import {
 import { Text } from "@chakra-ui/react";
 import LoremIpsum from "react-lorem-ipsum";
 
-export const ClaimDetailComponent = () => (
+export const ClaimDetailComponent = () => {
+  return (
   <Card>
     <CardBody>
       <Stack divider={<StackDivider />} spacing="4">
@@ -94,4 +96,4 @@ export const ClaimDetailComponent = () => (
     Ya estamos trabajando sobre tu Siniestro, revisá tu casilla de correo alejandro.rossi@assurant.com donde recibirás el avance de la gestión.
     </CardFooter>
   </Card>
-);
+)};

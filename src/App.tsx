@@ -2,7 +2,6 @@ import { ChakraProvider, Box, extendTheme } from "@chakra-ui/react";
 import { StepsTheme as Steps } from "chakra-ui-steps";
 import Navbar from "./components/NavBar/Navbar";
 import { CertificatesView } from "./pages/Certificates";
-import { ClaimCreatedView } from "./pages/Claims";
 import {
   BrowserRouter,
   Routes,
