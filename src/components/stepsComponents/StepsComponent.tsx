@@ -1,9 +1,9 @@
 import { Box, Button, Flex } from "@chakra-ui/react";
 import { Step, Steps, useSteps } from "chakra-ui-steps";
 import LoremIpsum from "react-lorem-ipsum";
-import { ClaimCoverageDocComponent } from "../Claims/ClaimCoverageDocComponent";
-import { ClaimCreateComponent } from "../Claims/ClaimCreateComponent";
-import { ClaimDetailComponent } from "../Claims/ClaimDetailComponent";
+import { ClaimCoverageDocComponent } from "../claims/ClaimCoverageDocComponent";
+import { ClaimCreateComponent } from "../claims/ClaimCreateComponent";
+import { ClaimDetailComponent } from "../claims/ClaimDetailComponent";
 
 const claimCreateComponent = (
   <Box mt={5}>

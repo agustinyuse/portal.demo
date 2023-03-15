@@ -1,5 +1,5 @@
-import { CertificateListComponent } from "../../components/Certificates/CertificateListComponent";
-import { UserPresentationComponent } from "../../components/UserPresentation/UserPresentationComponent";
+import { CertificateListComponent } from "../../components/certificates/CertificateListComponent";
+import { UserPresentationComponent } from "../../components/userPresentation/UserPresentationComponent";
 
 export const CertificatesView = () => (
   <>
