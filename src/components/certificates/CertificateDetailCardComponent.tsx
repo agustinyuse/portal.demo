@@ -42,7 +42,8 @@ interface CertificateDetail {
   statusClaim?: string;
 }
 
-export const CertificateDetailCardComponent = ({...children}: CertificateDetail ) => (
+export const CertificateDetailCardComponent = ({...children}: CertificateDetail ) => {
+  return (
   <Card
     direction={{ base: "column"}}
     overflow="hidden"
@@ -115,7 +116,7 @@ export const CertificateDetailCardComponent = ({...children}: CertificateDetail 
         {children.claimNumber && (
           <SimpleGrid>
             <Stack spacing={3}>
-              <Alert status="warning">
+              <Alert status="info">
                 <AlertIcon />
                 <SimpleGrid>
                   <SimpleGrid
@@ -159,4 +160,4 @@ export const CertificateDetailCardComponent = ({...children}: CertificateDetail 
       </CardBody>
     </Stack>
   </Card>
-);
+)};

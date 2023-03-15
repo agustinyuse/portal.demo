@@ -6,12 +6,12 @@ return (
 <Card>
   <CardHeader>
     <Heading size='md' textAlign={"center"}>FAQS</Heading>
-    <Text textAlign={"center"}>¿ Dudas ? Mira las consultas más frecuentes que podrán ayudarte</Text>
+    <Text textAlign={"center"}> <strong>¿ Dudas ?</strong> Mira las consultas más frecuentes que podrán ayudarte</Text>
   </CardHeader>
 
   <CardBody>
     <Stack divider={<StackDivider />} spacing='4'>
-    <Accordion defaultIndex={[0]} allowMultiple>
+    <Accordion defaultIndex={[0]}>
   <AccordionItem>
     <h2>
       <AccordionButton>
