@@ -1,6 +1,6 @@
 // HoC -> withAlgo...  FUNCION
 
-import { Box, Button, defineStyleConfig } from "@chakra-ui/react";
+import { Box, Button, defineStyleConfig, IconButton } from "@chakra-ui/react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth";
 import { CertificatesView } from "../../pages/Certificates";
@@ -15,7 +15,7 @@ const Layout = ({ children }: any) => {
   const { isLoggedIn } = useAuth();
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/1145576576?text=testeando");
+    window.open("https://wa.me/+541145576576?text=testeando");
   };
 
   return (
@@ -49,17 +49,18 @@ const Layout = ({ children }: any) => {
         </Box>
         {isLoggedIn() && (
           <Box display={"flex"} justifyContent={"right"}>
-            <Button
-              colorScheme={"whatsapp"}
-              leftIcon={<FaWhatsapp />}
+            <IconButton
+              variant="outline"
+              colorScheme="whatsapp"
+              aria-label="WhatsApp"
               height="50px"
-              bottom="40px"
+              bottom="70px"
               zIndex={100}
               pos="fixed"
+              border={0}
               onClick={() => openWhatsApp()}
-            >
-              ¿ Necesitas Ayuda ?
-            </Button>
+              icon={<FaWhatsapp size={50} />}
+            />
           </Box>
         )}
 
