@@ -66,7 +66,6 @@ export const CancelationCertificateView = () => {
                   cancelationObservation: "",
                 }}
                 validate={(values) => {
-                  debugger;
                   const errors: any = {};
                   if (
                     !values.cancelationReasonId ||
