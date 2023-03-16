@@ -151,7 +151,7 @@ export const CancelationCertificateView = () => {
           </Stack>
 
           {showAlert && (
-            <Stack spacing={3}>
+            <Stack spacing={3} mt="2">
               <Alert status="success">
                 <AlertIcon />
                 La cancelación está en proceso
