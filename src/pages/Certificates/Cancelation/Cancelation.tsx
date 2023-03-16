@@ -76,18 +76,22 @@ export const CancelationCertificateView = () => {
                     values.cancelationReasonId === 0
                   ) {
                     errors.cancelationReasonId = "Required";
+
+                    return errors;
+                  }
+                  if(values.cancelationReasonId == 7 && (!values.cancelationObservation || values.cancelationObservation === "")){
+                    errors.cancelationObservation = "Debe ingresar un comentario";
+                    return errors;
                   }
                   return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
                   setShowAlert(true);
                   setTimeout(() => {
-                    setShowAlert(false);
-
                     setSubmitting(false);
                     values.cancelationReasonId = 0;
                     values.cancelationObservation = "";
-                  }, 3000);
+                  }, 400);
                 }}
               >
                 {({
@@ -130,18 +134,28 @@ export const CancelationCertificateView = () => {
                           Debe seleccionar un motivo de cancelación
                         </FormErrorMessage>
                       </FormControl>
-                      <FormControl>
-                        <FormLabel htmlFor="cancelationObservation">
-                          Observación
-                        </FormLabel>
-                        <Textarea
-                          name="cancelationObservation"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          id="cancelationObservation"
-                          value={values.cancelationObservation}
-                        />
-                      </FormControl>
+
+                      {values.cancelationReasonId == 7 && (
+                        <FormControl  isInvalid={
+                          values.cancelationReasonId == 7 &&
+                          touched.cancelationObservation
+                        }>
+                          <FormLabel htmlFor="cancelationObservation">
+                            Observación
+                          </FormLabel>
+                          <Textarea
+                            name="cancelationObservation"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            id="cancelationObservation"
+                            value={values.cancelationObservation}
+                          />
+                        <FormErrorMessage>
+                         Debe ingresar un comentario
+                        </FormErrorMessage>
+                        </FormControl>
+                      )}
+
                       <Box display={"flex"} justifyContent={"right"}>
                         <Button as="button" type="submit" colorScheme="blue">
                           Enviar
@@ -158,7 +172,10 @@ export const CancelationCertificateView = () => {
             <Stack spacing={3} mt="2">
               <Alert status="success">
                 <AlertIcon />
-                La cancelación está en proceso
+                Nuestro equipo de atenciòn al cliente ya està trabajando en tu
+                solicitud. Sì queres hablar con alguno de nuestros
+                representantes podes hacerlo a travès de nuestro canal de
+                Whatsapp.
               </Alert>
             </Stack>
           )}
