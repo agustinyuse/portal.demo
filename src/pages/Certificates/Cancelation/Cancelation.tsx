@@ -46,6 +46,10 @@ const cancelationReasons: any[] = [
     cancelationReasonId: 6,
     cancelationDescription: "No estoy conforme con el servicio",
   },
+  {
+    cancelationReasonId: 7,
+    cancelationDescription: "Otro",
+  },
 ];
 
 export const CancelationCertificateView = () => {
