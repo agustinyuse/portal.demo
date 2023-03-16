@@ -132,7 +132,7 @@ export const CancelationCertificateView = () => {
                       </FormControl>
                       <FormControl>
                         <FormLabel htmlFor="cancelationObservation">
-                          Observación:
+                          Observación
                         </FormLabel>
                         <Textarea
                           name="cancelationObservation"
