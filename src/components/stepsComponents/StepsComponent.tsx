@@ -23,11 +23,6 @@ const claimDetailComponent = (
   </Box>
 );
 
-const content = (
-  <Flex py={4}>
-    <LoremIpsum p={1} />
-  </Flex>
-);
 
 const steps = [
   { label: "Detalle del siniestro", content: claimCreateComponent },

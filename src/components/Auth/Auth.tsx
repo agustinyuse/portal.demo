@@ -111,7 +111,8 @@ export const AuthComponent = () => {
                       colorScheme="green"
                       bg={"green.500"}
                       color="white"
-                      onClick={() => login()}
+                      type="submit"
+                      disabled={isSubmitting}
                     >
                       Iniciar Sesión
                     </Button>
