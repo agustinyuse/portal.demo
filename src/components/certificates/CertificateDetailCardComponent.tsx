@@ -28,7 +28,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Text, Image } from "@chakra-ui/react";
-import { FaFilePdf, FaPlus, FaTimes } from "react-icons/fa";
+import { FaFilePdf, FaFireAlt, FaPlus, FaTimes } from "react-icons/fa";
 import LoremIpsum from "react-lorem-ipsum";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -146,10 +146,10 @@ export const CertificateDetailCardComponent = ({
                     size={"sm"}
                     ml={2}
                     variant="outline"
-                    colorScheme="blue"
+                    colorScheme="red"
                     aria-label="Call Sage"
                     fontSize="20px"
-                    icon={<FaPlus />}
+                    icon={<FaFireAlt />}
                   />
                   </Tooltip>
 

@@ -57,7 +57,7 @@ const Layout = ({ children }: any) => {
           <Box display={"flex"} justifyContent={"right"}>
             <Button
               height="50px"
-              bottom="70px"
+              bottom="10px"
               zIndex={100}
               pos="fixed"
               colorScheme="whatsapp"
