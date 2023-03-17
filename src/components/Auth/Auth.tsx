@@ -5,6 +5,7 @@ import {
   Container,
   Divider,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Heading,
   HStack,
@@ -75,7 +76,7 @@ export const AuthComponent = () => {
               }) => (
                 <form onSubmit={handleSubmit}>
                   <Stack spacing="5">
-                    <FormControl>
+                    <FormControl isInvalid={!values.email}>
                       <FormLabel htmlFor="email">Usuario</FormLabel>
                       <Input
                         type="email"
@@ -83,8 +84,11 @@ export const AuthComponent = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
+                        placeholder="Ingrese su email"
                       />
-                      {errors.email && touched.email && errors.email}
+                      <FormErrorMessage>
+                        Debe ingresar su email
+                      </FormErrorMessage>
                     </FormControl>
                     <FormControl>
                       <FormLabel htmlFor="password">Contraseña</FormLabel>
@@ -94,16 +98,17 @@ export const AuthComponent = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
+                        placeholder="Ingrese su contraseña"
                       />
                       {errors.password && touched.password && errors.password}
                     </FormControl>
                   </Stack>
                   <HStack justify="space-between" mt={5}>
                     <Button variant="link" colorScheme="blue" size="sm">
-                      Olvidó su usuario?
+                      ¿ Olvidó su usuario ?
                     </Button>
                     <Button variant="link" colorScheme="blue" size="sm">
-                      Olvidó su contraseña?
+                      ¿ Olvidó su contraseña ?
                     </Button>
                   </HStack>
                   <Stack spacing="6" mt={5}>
@@ -123,7 +128,7 @@ export const AuthComponent = () => {
                     mt={5}
                   >
                     <HStack spacing="1" justify="center">
-                      <Text color="muted">No tiene una cuenta ?</Text>
+                      <Text color="muted"> ¿ No tiene una cuenta ?</Text>
                       <Button
                         variant="link"
                         colorScheme="blue"
