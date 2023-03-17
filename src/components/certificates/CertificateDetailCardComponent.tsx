@@ -24,8 +24,11 @@ import {
   SimpleGrid,
   Stack,
   StackDivider,
+  Tooltip,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Text, Image } from "@chakra-ui/react";
+import { FaFilePdf, FaPlus, FaTimes } from "react-icons/fa";
 import LoremIpsum from "react-lorem-ipsum";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -45,6 +48,8 @@ interface CertificateDetail {
 export const CertificateDetailCardComponent = ({
   ...children
 }: CertificateDetail) => {
+  let mainText = useColorModeValue("gray.500", "#ffffffeb");
+  let boxBg = useColorModeValue("gray.50", "whiteAlpha.100");
   return (
     <Card
       direction={{ base: "column" }}
@@ -68,14 +73,41 @@ export const CertificateDetailCardComponent = ({
                     textAlign="center"
                   />
                 </Heading>
-                <Text fontSize="md" py={1} textAlign={"left"}>
+                <Text
+                  fontSize="sm"
+                  color={mainText}
+                  lineHeight="24px"
+                  pe="40px"
+                  fontWeight="500"
+                  mb="auto"
+                  py={1}
+                  textAlign={"left"}
+                >
                   Producto: {children.productName}
                 </Text>
-                <Text fontSize="md" py={1} textAlign={"left"}>
+                <Text
+                  fontSize="sm"
+                  color={mainText}
+                  lineHeight="24px"
+                  pe="40px"
+                  fontWeight="500"
+                  mb="auto"
+                  py={1}
+                  textAlign={"left"}
+                >
                   Poliza: {children.policyNumber} Certificado:{" "}
                   {children.certNumber}
                 </Text>
-                <Text fontSize="md" py={1} textAlign={"left"}>
+                <Text
+                  fontSize="sm"
+                  color={mainText}
+                  lineHeight="24px"
+                  pe="40px"
+                  fontWeight="500"
+                  mb="auto"
+                  py={1}
+                  textAlign={"left"}
+                >
                   <Badge colorScheme="green">{children.state}</Badge> Vigencia:{" "}
                   {children.vigencia}
                 </Text>
@@ -84,36 +116,43 @@ export const CertificateDetailCardComponent = ({
                 display={"flex"}
                 justifyContent={{ base: "left", md: "right" }}
               >
+                  <Tooltip label="Descargar Certificado">
                 <IconButton
                   size={"sm"}
                   ml={2}
                   variant="outline"
-                  colorScheme="teal"
+                  colorScheme="blue"
                   aria-label="Call Sage"
                   fontSize="20px"
-                  icon={<InfoIcon />}
+                  icon={<FaFilePdf />}
                 />
+                </Tooltip>
                 <Link as={RouterLink} to={`${children.certNumber}/cancelation`}>
+                <Tooltip label="Cancelar Certificado">
                   <IconButton
                     size={"sm"}
                     ml={2}
                     variant="outline"
-                    colorScheme="teal"
+                    colorScheme="blue"
                     aria-label="Call Sage"
                     fontSize="20px"
-                    icon={<CloseIcon />}
+                    icon={<FaTimes />}
                   />
+                  </Tooltip>
                 </Link>
                 <Link as={RouterLink} to={`${children.certNumber}/createclaim`}>
+                  <Tooltip label="Crear Siniestro">
                   <IconButton
                     size={"sm"}
                     ml={2}
                     variant="outline"
-                    colorScheme="teal"
+                    colorScheme="blue"
                     aria-label="Call Sage"
                     fontSize="20px"
-                    icon={<SmallAddIcon />}
+                    icon={<FaPlus />}
                   />
+                  </Tooltip>
+
                 </Link>
               </Box>
             </SimpleGrid>
@@ -121,7 +160,7 @@ export const CertificateDetailCardComponent = ({
             {children.claimNumber && (
               <SimpleGrid>
                 <Stack spacing={3}>
-                  <Alert status="info">
+                  <Alert bg={boxBg}>
                     <AlertIcon />
                     <SimpleGrid>
                       <SimpleGrid
@@ -134,6 +173,11 @@ export const CertificateDetailCardComponent = ({
                           py={1}
                           textAlign={"left"}
                           fontStyle={"italic"}
+                          color={mainText}
+                          lineHeight="24px"
+                          pe="40px"
+                          fontWeight="500"
+                          mb="auto"
                         >
                           Nro Reclamo:{" "}
                           <Link color={"blue.400"}>
@@ -145,6 +189,11 @@ export const CertificateDetailCardComponent = ({
                           py={1}
                           textAlign={"left"}
                           fontStyle={"italic"}
+                          color={mainText}
+                          lineHeight="24px"
+                          pe="40px"
+                          fontWeight="500"
+                          mb="auto"
                         >
                           Cobertura: {children.coverageCode}
                         </Text>
@@ -152,9 +201,13 @@ export const CertificateDetailCardComponent = ({
                       <SimpleGrid spacing={1}>
                         <Text
                           fontSize="md"
-                          py={1}
                           textAlign={"left"}
                           fontStyle={"italic"}
+                          color={mainText}
+                          lineHeight="24px"
+                          pe="40px"
+                          fontWeight="500"
+                          mb="auto"
                         >
                           Estado: {children.statusClaim}
                         </Text>

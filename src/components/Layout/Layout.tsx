@@ -34,7 +34,10 @@ const Layout = ({ children }: any) => {
               <Route path="/certificates/:id" element={<CertificatesView />} />
             </Route>
             <Route path="/certificates/:id" element={<PrivateRoute />}>
-              <Route path="/certificates/:id/cancelation" element={<CancelationCertificateView />} />
+              <Route
+                path="/certificates/:id/cancelation"
+                element={<CancelationCertificateView />}
+              />
             </Route>
             <Route
               path="/certificates/:id/createclaim"
@@ -52,18 +55,17 @@ const Layout = ({ children }: any) => {
         </Box>
         {isLoggedIn() && (
           <Box display={"flex"} justifyContent={"right"}>
-            <IconButton
-              variant="outline"
-              colorScheme="whatsapp"
-              aria-label="WhatsApp"
+            <Button
               height="50px"
               bottom="70px"
               zIndex={100}
               pos="fixed"
-              border={0}
+              colorScheme="whatsapp"
+              leftIcon={<FaWhatsapp />}
               onClick={() => openWhatsApp()}
-              icon={<FaWhatsapp size={50} />}
-            />
+            >
+             ¿ Necesitas Ayuda ?
+            </Button>
           </Box>
         )}
 
