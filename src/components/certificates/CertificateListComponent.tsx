@@ -31,11 +31,7 @@ export const CertificateListComponent = ({...props}) => (
   <>
     <SimpleGrid spacing={30}>
       <Box>
-        <Heading as="h3" size="lg" m={2}>
-          Mis Seguros
-        </Heading>
-
-        <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
+         <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
           {certs.map((cert) => (
             <CertificateDetailCardComponent key={cert.id} {...cert} />
           ))}

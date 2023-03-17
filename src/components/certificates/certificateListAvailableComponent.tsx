@@ -14,10 +14,6 @@ export const CertificateListAvailableComponent = ({...props}) => (
   <>
     <SimpleGrid spacing={30}>
       <Box>
-        <Heading as="h3" size="lg" m={2}>
-          Solicitar Seguro
-        </Heading>
-
         <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
           {certsAvaliable.map((cert) => (
             <CertificateDetailCardAvailableComponent
