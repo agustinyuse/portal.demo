@@ -84,10 +84,10 @@ export const AuthComponent = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
-                        placeholder="Ingrese su email"
+                        placeholder="Ingrese su usuario"
                       />
                       <FormErrorMessage>
-                        Debe ingresar su email
+                        Debe ingresar su usuario
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl>
