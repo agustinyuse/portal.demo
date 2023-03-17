@@ -64,7 +64,7 @@ export const CertificateDetailCardAvailableComponent = ({
             {children.productName}
           </Heading>
           <Text
-            fontSize="sm"
+            fontSize="md"
             color={mainText}
             lineHeight="24px"
             pe="40px"

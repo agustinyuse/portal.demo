@@ -74,7 +74,7 @@ export const CertificateDetailCardComponent = ({
                   />
                 </Heading>
                 <Text
-                  fontSize="sm"
+                  fontSize="md"
                   color={mainText}
                   lineHeight="24px"
                   pe="40px"
@@ -86,7 +86,7 @@ export const CertificateDetailCardComponent = ({
                   Producto: {children.productName}
                 </Text>
                 <Text
-                  fontSize="sm"
+                  fontSize="md"
                   color={mainText}
                   lineHeight="24px"
                   pe="40px"
@@ -99,7 +99,7 @@ export const CertificateDetailCardComponent = ({
                   {children.certNumber}
                 </Text>
                 <Text
-                  fontSize="sm"
+                  fontSize="md"
                   color={mainText}
                   lineHeight="24px"
                   pe="40px"
