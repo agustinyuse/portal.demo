@@ -76,7 +76,7 @@ export const AuthComponent = () => {
               }) => (
                 <form onSubmit={handleSubmit}>
                   <Stack spacing="5">
-                    <FormControl isInvalid={!values.email}>
+                    <FormControl isInvalid={!!errors.email && touched.email}>
                       <FormLabel htmlFor="email">Usuario</FormLabel>
                       <Input
                         type="email"
