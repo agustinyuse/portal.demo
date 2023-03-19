@@ -1,36 +1,8 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import { Step, Steps, useSteps } from "chakra-ui-steps";
-import LoremIpsum from "react-lorem-ipsum";
-import { ClaimCoverageDocComponent } from "../claims/ClaimCoverageDocComponent";
-import { ClaimCreateComponent } from "../claims/ClaimCreateComponent";
-import { ClaimDetailComponent } from "../claims/ClaimDetailComponent";
-
-const claimCreateComponent = (
-  <Box mt={5}>
-    <ClaimCreateComponent></ClaimCreateComponent>
-  </Box>
-);
-
-const claimCoverageDocComponent = (
-  <Box mt={5}>
-    <ClaimCoverageDocComponent></ClaimCoverageDocComponent>
-  </Box>
-);
-
-const claimDetailComponent = (
-  <Box mt={5}>
-    <ClaimDetailComponent></ClaimDetailComponent>
-  </Box>
-);
 
 
-const steps = [
-  { label: "Detalle del siniestro", content: claimCreateComponent },
-  { label: "Completar documentación", content: claimCoverageDocComponent },
-  { label: "Resúmen siniestro", content: claimDetailComponent },
-];
-
-export const ClaimSteps = () => {
+export const StepsComponent = ({props}: any) => {
   const { nextStep, prevStep, setStep, reset, activeStep } = useSteps({
     initialStep: 0,
   });
@@ -38,13 +10,13 @@ export const ClaimSteps = () => {
   return (
     <Flex flexDir="column" width="100%">
       <Steps activeStep={activeStep}>
-        {steps.map(({ label, content }) => (
+      {props.map(({ label, content }: any) => (
           <Step label={label} key={label}>
             {content}
           </Step>
         ))}
       </Steps>
-      {activeStep === steps.length ? (
+      {activeStep === props.length ? (
         <Flex p={4}>
           <Button mx="auto" size="sm" onClick={reset}>
             Volver
@@ -62,7 +34,7 @@ export const ClaimSteps = () => {
             Atras
           </Button>
           <Button size="sm" onClick={nextStep}>
-            {activeStep === steps.length - 1 ? "Final" : "Siguiente"}
+            {activeStep === props.length - 1 ? "Final" : "Siguiente"}
           </Button>
         </Flex>
       )}
