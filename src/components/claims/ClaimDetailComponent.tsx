@@ -21,7 +21,6 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
-import LoremIpsum from "react-lorem-ipsum";
 
 export const ClaimDetailComponent = () => {
   return (
@@ -33,7 +32,7 @@ export const ClaimDetailComponent = () => {
             Siniestro
           </Heading>
           <Text pt="2" fontSize="sm" color={"blue.500"}>
-            #454623212
+            #20000001
           </Text>
         </Box>
         <Box>

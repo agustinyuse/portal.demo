@@ -1,10 +1,4 @@
 import {
-  CloseIcon,
-  DownloadIcon,
-  InfoIcon,
-  SmallAddIcon,
-} from "@chakra-ui/icons";
-import {
   Alert,
   AlertIcon,
   Badge,
@@ -12,23 +6,16 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
-  CardHeader,
-  Flex,
-  FormControl,
-  FormLabel,
   Heading,
   IconButton,
   Link,
-  Select,
   SimpleGrid,
   Stack,
-  StackDivider,
   Tooltip,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Text, Image } from "@chakra-ui/react";
-import { FaFilePdf, FaFireAlt, FaPlus, FaTimes } from "react-icons/fa";
+import { FaFilePdf, FaShieldAlt, FaTimes } from "react-icons/fa";
 import LoremIpsum from "react-lorem-ipsum";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -46,7 +33,7 @@ interface CertificateDetail {
 }
 
 export const CertificateDetailCardComponent = ({
-  ...children
+  ...props
 }: CertificateDetail) => {
   let mainText = useColorModeValue("gray.500", "#ffffffeb");
   let boxBg = useColorModeValue("gray.50", "whiteAlpha.100");
@@ -66,7 +53,7 @@ export const CertificateDetailCardComponent = ({
                 <Heading size="md" textAlign={"left"}>
                   <Image
                     objectFit="cover"
-                    src={"../assets/" + children.logo}
+                    src={"../assets/" + props.logo}
                     alt="Green double couch with wooden legs"
                     borderRadius="lg"
                     w={100}
@@ -83,7 +70,7 @@ export const CertificateDetailCardComponent = ({
                   py={1}
                   textAlign={"left"}
                 >
-                  Producto: {children.productName}
+                  Producto: {props.productName}
                 </Text>
                 <Text
                   fontSize="md"
@@ -95,8 +82,8 @@ export const CertificateDetailCardComponent = ({
                   py={1}
                   textAlign={"left"}
                 >
-                  Poliza: {children.policyNumber} Certificado:{" "}
-                  {children.certNumber}
+                  Poliza: {props.policyNumber} Certificado:{" "}
+                  {props.certNumber}
                 </Text>
                 <Text
                   fontSize="md"
@@ -108,8 +95,8 @@ export const CertificateDetailCardComponent = ({
                   py={1}
                   textAlign={"left"}
                 >
-                  <Badge colorScheme="green">{children.state}</Badge> Vigencia:{" "}
-                  {children.vigencia}
+                  <Badge colorScheme="green">{props.state}</Badge> Vigencia:{" "}
+                  {props.vigencia}
                 </Text>
               </Box>
               <Box
@@ -127,7 +114,7 @@ export const CertificateDetailCardComponent = ({
                   icon={<FaFilePdf />}
                 />
                 </Tooltip>
-                <Link as={RouterLink} to={`${children.certNumber}/cancelation`}>
+                <Link as={RouterLink} to={`${props.certNumber}/cancelation`}>
                 <Tooltip label="Cancelar Certificado">
                   <IconButton
                     size={"sm"}
@@ -140,7 +127,7 @@ export const CertificateDetailCardComponent = ({
                   />
                   </Tooltip>
                 </Link>
-                <Link as={RouterLink} to={`${children.certNumber}/createclaim`}>
+                <Link as={RouterLink} to={`${props.certNumber}/createclaim`}>
                   <Tooltip label="Crear Siniestro">
                   <IconButton
                     size={"sm"}
@@ -149,7 +136,7 @@ export const CertificateDetailCardComponent = ({
                     colorScheme="red"
                     aria-label="Call Sage"
                     fontSize="20px"
-                    icon={<FaFireAlt />}
+                    icon={<FaShieldAlt />}
                   />
                   </Tooltip>
 
@@ -157,7 +144,7 @@ export const CertificateDetailCardComponent = ({
               </Box>
             </SimpleGrid>
 
-            {children.claimNumber && (
+            {props.claimNumber && (
               <SimpleGrid>
                 <Stack spacing={3}>
                   <Alert bg={boxBg}>
@@ -179,9 +166,9 @@ export const CertificateDetailCardComponent = ({
                           fontWeight="500"
                           mb="auto"
                         >
-                          Nro Reclamo:{" "}
-                          <Link color={"blue.400"}>
-                            #{children.claimNumber}
+                          Nro Reclamo:
+                          <Link as={RouterLink} color={"blue.400"} to={`/claims/${props.claimNumber}`}>
+                            #{props.claimNumber}
                           </Link>
                         </Text>
                         <Text
@@ -195,7 +182,7 @@ export const CertificateDetailCardComponent = ({
                           fontWeight="500"
                           mb="auto"
                         >
-                          Cobertura: {children.coverageCode}
+                          Cobertura: {props.coverageCode}
                         </Text>
                       </SimpleGrid>
                       <SimpleGrid spacing={1}>
@@ -209,7 +196,7 @@ export const CertificateDetailCardComponent = ({
                           fontWeight="500"
                           mb="auto"
                         >
-                          Estado: {children.statusClaim}
+                          Estado: {props.statusClaim}
                         </Text>
                       </SimpleGrid>
                     </SimpleGrid>

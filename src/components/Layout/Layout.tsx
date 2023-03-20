@@ -1,6 +1,6 @@
 // HoC -> withAlgo...  FUNCION
 
-import { Box, Button, defineStyleConfig, IconButton } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth";
 import { CertificatesView } from "../../pages/Certificates";
@@ -11,6 +11,7 @@ import { Footer } from "../Footer/Footer";
 import Navbar from "../NavBar/Navbar";
 import { FaWhatsapp } from "react-icons/fa";
 import { CancelationCertificateView } from "../../pages/Certificates/Cancelation/Cancelation";
+import { ClaimDetail } from "../../pages/Claims/ClaimDetail";
 
 const Layout = ({ children }: any) => {
   const { isLoggedIn } = useAuth();
@@ -48,6 +49,9 @@ const Layout = ({ children }: any) => {
                 element={<ClaimCreatedView />}
               />
             </Route>
+            <Route path="/claims/:id/" element={<PrivateRoute />}>
+              <Route path="/claims/:id/" element={<ClaimDetail />} />
+            </Route>
 
             <Route path="*" element={<Navigate to="/certificates" replace />} />
             <Route path="/login" element={<Login />} />
@@ -64,7 +68,7 @@ const Layout = ({ children }: any) => {
               leftIcon={<FaWhatsapp />}
               onClick={() => openWhatsApp()}
             >
-             ¿ Necesitas Ayuda ?
+              ¿ Necesitas Ayuda ?
             </Button>
           </Box>
         )}
