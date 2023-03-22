@@ -35,7 +35,7 @@ interface CertificateCardDetailAvailable {
 }
 
 export const CertificateDetailCardAvailableComponent = ({
-  ...children
+  ...props
 }: CertificateCardDetailAvailable) => {
   let mainText = useColorModeValue("gray.500", "#ffffffeb");
 
@@ -48,8 +48,8 @@ export const CertificateDetailCardAvailableComponent = ({
       <Image
         objectFit="cover"
         maxW={{ base: "100%", sm: "200px" }}
-        src={"../assets/" + children.logo}
-        alt="Caffe Latte"
+        src={"../assets/" + props.logo}
+        alt={props.logo}
       />
 
       <Stack>
@@ -61,7 +61,7 @@ export const CertificateDetailCardAvailableComponent = ({
             pe="40px"
             fontWeight="500"
           >
-            {children.productName}
+            {props.productName}
           </Heading>
           <Text
             fontSize="md"
@@ -73,7 +73,7 @@ export const CertificateDetailCardAvailableComponent = ({
             py={1}
             textAlign={"left"}
           >
-            {children.coverageDescription}
+            {props.coverageDescription}
           </Text>
         </CardBody>
         <CardFooter>

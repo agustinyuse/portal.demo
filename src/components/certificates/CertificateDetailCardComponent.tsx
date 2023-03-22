@@ -54,7 +54,7 @@ export const CertificateDetailCardComponent = ({
                   <Image
                     objectFit="cover"
                     src={"../assets/" + props.logo}
-                    alt="Green double couch with wooden legs"
+                    alt={props.logo}
                     borderRadius="lg"
                     w={100}
                     textAlign="center"

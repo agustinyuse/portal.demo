@@ -72,7 +72,7 @@ export default function Navbar() {
             color={useColorModeValue("gray.800", "white")}
             to="/certificates"
           >
-            <Image src="../assets/assurant.png" w={10}></Image>
+            <Image src="../assets/assurant.png" w={10} alt="assurant logo"></Image>
           </NavLink>
           <ColorModeSwitcher justifySelf="flex-end" />
 
