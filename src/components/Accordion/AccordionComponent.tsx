@@ -22,7 +22,6 @@ export const AccordionFAQSComponent = () => {
           FAQS
         </Heading>
         <Text textAlign={"center"}>
-          {" "}
           <strong>¿ Dudas ?</strong> Mira las consultas más frecuentes que
           podrán ayudarte
         </Text>

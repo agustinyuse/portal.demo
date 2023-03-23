@@ -27,11 +27,11 @@ const certs: any[] = [
   },
 ];
 
-export const CertificateListComponent = ({...props}) => (
+export const CertificateListComponent = ({ ...props }) => (
   <>
     <SimpleGrid spacing={30}>
       <Box>
-         <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
+        <SimpleGrid columns={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={2}>
           {certs.map((cert) => (
             <CertificateDetailCardComponent key={cert.id} {...cert} />
           ))}
