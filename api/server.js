@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
 const axios = require("axios");
+const fs = require("fs");
+const https = require("https");
+
+const options = {
+  key: fs.readFileSync("./key.pem"),
+  cert: fs.readFileSync("./cert.pem"),
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,13 +21,10 @@ app.post("/message", async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://api.openai.com/v1/engines/davinci-codex/completions",
+      "https://api.openai.com/v1/chat/completions",
       {
-        prompt,
-        max_tokens: 150,
-        n: 1,
-        stop: "\n",
-        temperature: 0.7,
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }],
       },
       {
         headers: {
@@ -40,8 +44,9 @@ app.post("/message", async (req, res) => {
   }
 });
 
+const server = https.createServer(options, app);
+
 // iniciar el servidor
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+server.listen(3000, () => {
+  console.log("listening on 3000");
 });
