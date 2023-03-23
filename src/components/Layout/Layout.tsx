@@ -12,6 +12,7 @@ import Navbar from "../NavBar/Navbar";
 import { FaWhatsapp } from "react-icons/fa";
 import { CancelationCertificateView } from "../../pages/Certificates/Cancelation/Cancelation";
 import { ClaimDetail } from "../../pages/Claims/ClaimDetail";
+import { Products } from "../../pages/Products";
 
 const Layout = ({ children }: any) => {
   const { isLoggedIn } = useAuth();
@@ -51,6 +52,10 @@ const Layout = ({ children }: any) => {
             </Route>
             <Route path="/claims/:id/" element={<PrivateRoute />}>
               <Route path="/claims/:id/" element={<ClaimDetail />} />
+            </Route>
+
+            <Route path="/products" element={<PrivateRoute />}>
+              <Route path="/products" element={<Products />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/certificates" replace />} />

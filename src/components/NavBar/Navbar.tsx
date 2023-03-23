@@ -13,10 +13,13 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { Image } from "@chakra-ui/react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth";
 
-const Links = [{ name: "Certificados", to: "certificates" }];
+const Links = [
+  { name: "Certificados", to: "certificates" },
+  { name: "Planes", to: "products" },
+];
 
 const NavLink = ({ children, ...props }: any) => (
   <Link
@@ -72,7 +75,11 @@ export default function Navbar() {
             color={useColorModeValue("gray.800", "white")}
             to="/certificates"
           >
-            <Image src="../assets/assurant.png" w={10} alt="assurant logo"></Image>
+            <Image
+              src="../assets/assurant.png"
+              w={10}
+              alt="assurant logo"
+            ></Image>
           </NavLink>
           <ColorModeSwitcher justifySelf="flex-end" />
 
