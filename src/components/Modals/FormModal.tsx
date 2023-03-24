@@ -75,26 +75,31 @@ export function FormModal() {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
-        size={"lg"}
+        size={"md"}
       >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Sugerencias para detallar un siniestro</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <ButtonGroup variant="outline" spacing="6">
+            <Box>
               <Button
                 colorScheme="blue"
                 rightIcon={<ArrowForwardIcon />}
+                size="sm"
+                display={"flex"}
+                whiteSpace={"inherit"}
                 onClick={() =>
                   button1(
                     "Sugerencia de como detallar el reclamo de un siniestro"
                   )
                 }
               >
-                Sugerencia de como detallar el reclamo de un siniestro
+                <Text>
+                  Sugerencia de como detallar el reclamo de un siniestro
+                </Text>
               </Button>
-            </ButtonGroup>
+            </Box>
 
             <Stack mt={5}>
               {messages &&
@@ -116,30 +121,22 @@ export function FormModal() {
                   onChange={(e) => setMessage(e.target.value)}
                 />
                 {isLoading && (
-                  <Box display={"flex"} justifyContent="center" mt={5}>
+                  <Box display={"flex"} justifyContent="center">
                     <Spinner size={"md"}></Spinner>
                   </Box>
                 )}
 
-                <Stack
-                  direction={["column", "row"]}
-                  display="flex"
-                  justifyContent={"space-between"}
-                >
+                <Box display="flex" justifyContent={"space-between"} mt="5">
                   <Box>
-                    {!isLoading && (
-                      <Button type="submit" mt={5}>
-                        Enviar
-                      </Button>
-                    )}
+                    {!isLoading && <Button type="submit">Enviar</Button>}
                   </Box>
 
                   <Box>
-                    <Button type="button" mt={5} onClick={() => clear()}>
+                    <Button type="button" onClick={() => clear()}>
                       Limpiar
                     </Button>
                   </Box>
-                </Stack>
+                </Box>
               </form>
             </Stack>
           </ModalBody>
