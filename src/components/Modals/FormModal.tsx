@@ -89,13 +89,14 @@ export function FormModal() {
                 size="sm"
                 display={"flex"}
                 whiteSpace={"inherit"}
+                height={"50px"}
                 onClick={() =>
                   button1(
                     "Sugerencia de como detallar el reclamo de un siniestro"
                   )
                 }
               >
-                <Text>
+                <Text lineHeight={1}>
                   Sugerencia de como detallar el reclamo de un siniestro
                 </Text>
               </Button>
