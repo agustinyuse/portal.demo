@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import LoremIpsum from "react-lorem-ipsum";
+import { FormModal } from "../Modals/FormModal";
 
 export const ClaimCreateComponent = () => (
   <Card>
@@ -40,6 +41,7 @@ export const ClaimCreateComponent = () => (
           <FormLabel htmlFor="observation">Detalle del siniestro</FormLabel>
           <Textarea placeholder="Ingrese detalle sobre el siniestro" />
         </FormControl>
+        <FormModal></FormModal>
       </Stack>
     </CardBody>
   </Card>
