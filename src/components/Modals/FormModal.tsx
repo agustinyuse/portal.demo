@@ -26,7 +26,7 @@ import io from "socket.io-client";
 
 const backendSite: string | undefined = process.env
   .REACT_APP_BACKENDSITE_URL as string;
-const socket = io(backendSite);
+const socket = io("https://portalautogestionapi.azurewebsites.net");
 
 interface message {
   prompt: string;
