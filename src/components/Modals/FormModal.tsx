@@ -20,13 +20,8 @@ import {
   Box,
   Spinner,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { FiCommand } from "react-icons/fi";
-import io from "socket.io-client";
-
-const backendSite: string | undefined = process.env
-  .REACT_APP_BACKENDSITE_URL as string;
-const socket = io("https://portalautogestionapi.azurewebsites.net");
+import axios from "axios";
+import React, { useState } from "react";
 
 interface message {
   prompt: string;
@@ -39,21 +34,24 @@ export function FormModal({ onSetMessage }: any) {
   const [messages, setMessages] = useState<message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    socket.on("chat message", function (msg: message) {
-      setMessages([...messages, msg]);
-      setIsLoading(false);
-    });
-  }, [messages]);
-
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    socket.emit("chat message", message);
     setMessage("");
     setIsLoading(true);
+    axios
+      .post("https://portalautogestionapi.azurewebsites.net/chat", { message })
+      .then((response) => {
+        console.log(response);
+        setMessages([...messages, response.data]);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   };
 
   const clear = () => {
@@ -61,9 +59,19 @@ export function FormModal({ onSetMessage }: any) {
   };
 
   const button1 = (message: string) => {
-    socket.emit("chat message", message);
     setMessage("");
     setIsLoading(true);
+    axios
+      .post("https://portalautogestionapi.azurewebsites.net/chat", { message })
+      .then((response) => {
+        console.log(response);
+        setMessages([...messages, response.data]);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   };
 
   const selectMessage = (value: string) => {
@@ -73,7 +81,7 @@ export function FormModal({ onSetMessage }: any) {
 
   return (
     <>
-      <Button onClick={onOpen}>¿ Necesita alguna sugerencia ?</Button>
+      <Button onClick={onOpen}>Necesita alguna sugerencia ?</Button>
 
       <Modal
         initialFocusRef={initialRef}
