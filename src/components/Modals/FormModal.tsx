@@ -33,7 +33,7 @@ interface message {
   content: string;
 }
 
-export function FormModal() {
+export function FormModal({ onSetMessage }: any) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<message[]>([]);
@@ -64,6 +64,11 @@ export function FormModal() {
     socket.emit("chat message", message);
     setMessage("");
     setIsLoading(true);
+  };
+
+  const selectMessage = (value: string) => {
+    onSetMessage(value);
+    onClose();
   };
 
   return (
@@ -107,9 +112,18 @@ export function FormModal() {
                 messages.map((message: message, i: any) => (
                   <>
                     <Text> {message.prompt}</Text>
-                    <Alert status="info" key={i}>
+                    <Alert
+                      status="info"
+                      key={i}
+                      display="flex"
+                      justifyContent={"space-between"}
+                    >
                       <AlertIcon />
                       {message.content}
+                      <Button
+                        rightIcon={<ArrowForwardIcon />}
+                        onClick={() => selectMessage(message.content)}
+                      ></Button>
                     </Alert>
                   </>
                 ))}
@@ -122,7 +136,7 @@ export function FormModal() {
                   onChange={(e) => setMessage(e.target.value)}
                 />
                 {isLoading && (
-                  <Box display={"flex"} justifyContent="center">
+                  <Box display={"flex"} justifyContent="center" mt={5}>
                     <Spinner size={"md"}></Spinner>
                   </Box>
                 )}
@@ -133,7 +147,11 @@ export function FormModal() {
                   </Box>
 
                   <Box>
-                    <Button type="button" onClick={() => clear()}>
+                    <Button
+                      type="button"
+                      disabled={isLoading}
+                      onClick={() => clear()}
+                    >
                       Limpiar
                     </Button>
                   </Box>
@@ -141,13 +159,6 @@ export function FormModal() {
               </form>
             </Stack>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
-              Guardar
-            </Button>
-            <Button onClick={onClose}>Cancelar</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
