@@ -52,7 +52,12 @@ export const ClaimCreateComponent = () => {
               value={observation}
             />
           </FormControl>
-          <FormModal onSetMessage={onSetObservation}></FormModal>
+          <FormModal
+            buttonToOpenText="¿ Necesita alguna sugerencia ?"
+            buttonDefaultQuestionText="Sugerencia de como detallar el reclamo de un siniestro"
+            headerText="Sugerencias para detallar un siniestro"
+            handleSetMessage={onSetObservation}
+          ></FormModal>
         </Stack>
       </CardBody>
     </Card>

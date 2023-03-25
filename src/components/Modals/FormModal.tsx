@@ -1,15 +1,11 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
   Button,
-  ButtonGroup,
-  FormControl,
-  FormLabel,
   Input,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   Stack,
@@ -20,68 +16,45 @@ import {
   Box,
   Spinner,
 } from "@chakra-ui/react";
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
+import { useOpenAIChat, IChat } from "../../hooks/useOpenAIChat";
 
-interface message {
-  prompt: string;
-  content: string;
+interface IModalProps {
+  headerText: string;
+  buttonToOpenText: string;
+  buttonDefaultQuestionText: string;
+  handleSetMessage: (value: string) => void;
 }
 
-export function FormModal({ onSetMessage }: any) {
+export function FormModal({
+  headerText,
+  buttonToOpenText,
+  buttonDefaultQuestionText,
+  handleSetMessage,
+}: IModalProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState<message[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const {
+    isLoading,
+    messages,
+    handleSubmit,
+    defaultQuestion,
+    clear,
+    message,
+    setMessage,
+  } = useOpenAIChat();
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    setMessage("");
-    setIsLoading(true);
-    axios
-      .post("https://portalautogestionapi.azurewebsites.net/chat", { message })
-      .then((response) => {
-        console.log(response);
-        setMessages([...messages, response.data]);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  };
-
-  const clear = () => {
-    setMessages([]);
-  };
-
-  const button1 = (message: string) => {
-    setMessage("");
-    setIsLoading(true);
-    axios
-      .post("https://portalautogestionapi.azurewebsites.net/chat", { message })
-      .then((response) => {
-        console.log(response);
-        setMessages([...messages, response.data]);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  };
-
   const selectMessage = (value: string) => {
-    onSetMessage(value);
+    handleSetMessage(value);
     onClose();
   };
 
   return (
     <>
-      <Button onClick={onOpen}>Necesita alguna sugerencia ?</Button>
+      <Button onClick={onOpen}>{buttonToOpenText}</Button>
 
       <Modal
         initialFocusRef={initialRef}
@@ -92,7 +65,7 @@ export function FormModal({ onSetMessage }: any) {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Sugerencias para detallar un siniestro</ModalHeader>
+          <ModalHeader>{headerText}</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <Box>
@@ -103,37 +76,32 @@ export function FormModal({ onSetMessage }: any) {
                 display={"flex"}
                 whiteSpace={"inherit"}
                 height={"50px"}
-                onClick={() =>
-                  button1(
-                    "Sugerencia de como detallar el reclamo de un siniestro"
-                  )
-                }
+                onClick={() => defaultQuestion(buttonDefaultQuestionText)}
               >
-                <Text lineHeight={1}>
-                  Sugerencia de como detallar el reclamo de un siniestro
-                </Text>
+                <Text lineHeight={1}>{buttonDefaultQuestionText}</Text>
               </Button>
             </Box>
 
             <Stack mt={5}>
               {messages &&
-                messages.map((message: message, i: any) => (
-                  <>
-                    <Text> {message.prompt}</Text>
+                messages.map((message: IChat, i: any) => (
+                  <Box key={i}>
+                    <Text key={`prompt-${i}`}> {message.prompt}</Text>
                     <Alert
                       status="info"
-                      key={i}
+                      key={`alert-${i}`}
                       display="flex"
                       justifyContent={"space-between"}
                     >
-                      <AlertIcon />
+                      <AlertIcon key={`alertIcon-${i}`} />
                       {message.content}
                       <Button
+                        key={`button-${i}`}
                         rightIcon={<ArrowForwardIcon />}
                         onClick={() => selectMessage(message.content)}
                       ></Button>
                     </Alert>
-                  </>
+                  </Box>
                 ))}
             </Stack>
             <Stack mt={5}>
