@@ -73,7 +73,7 @@ export function FormModal({ onSetMessage }: any) {
 
   return (
     <>
-      <Button onClick={onOpen}>Necesita alguna sugerencia ?</Button>
+      <Button onClick={onOpen}>¿ Necesita alguna sugerencia ?</Button>
 
       <Modal
         initialFocusRef={initialRef}
