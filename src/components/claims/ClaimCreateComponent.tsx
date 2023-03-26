@@ -12,17 +12,21 @@ import {
   Stack,
   StackDivider,
   Textarea,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { useState } from "react";
 import LoremIpsum from "react-lorem-ipsum";
 import { FormModal } from "../Modals/FormModal";
+import { OpenAIChatComponent } from "../OpenAi/OpenAiChatComponent";
 
 export const ClaimCreateComponent = () => {
   const [observation, setObservation] = useState<string>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const onSetObservation = (observation: string) => {
     setObservation(observation);
+    onClose();
   };
 
   return (
@@ -54,9 +58,16 @@ export const ClaimCreateComponent = () => {
           </FormControl>
           <FormModal
             buttonToOpenText="¿ Necesita alguna sugerencia ?"
-            buttonDefaultQuestionText="Sugerencia de como detallar el reclamo de un siniestro"
             headerText="Sugerencias para detallar un siniestro"
-            handleSetMessage={onSetObservation}
+            isOpen={isOpen}
+            onClose={onClose}
+            onOpen={onOpen}
+            children={
+              <OpenAIChatComponent
+                buttonDefaultQuestionText="Sugerencia de como detallar el reclamo de un siniestro"
+                handleSetMessage={onSetObservation}
+              ></OpenAIChatComponent>
+            }
           ></FormModal>
         </Stack>
       </CardBody>
