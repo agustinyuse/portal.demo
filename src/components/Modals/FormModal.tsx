@@ -8,16 +8,8 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  Stack,
-  useDisclosure,
-  Text,
-  Alert,
-  AlertIcon,
-  Box,
-  Spinner,
 } from "@chakra-ui/react";
 import React, { Children } from "react";
-import { useOpenAIChat, IChat } from "../../hooks/useOpenAIChat";
 
 interface IModalProps {
   headerText: string;

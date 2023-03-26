@@ -17,6 +17,7 @@ import {
 import { Text } from "@chakra-ui/react";
 import { useState } from "react";
 import LoremIpsum from "react-lorem-ipsum";
+import { DrawerComponent } from "../Drawers/DrawerComponent";
 import { FormModal } from "../Modals/FormModal";
 import { OpenAIChatComponent } from "../OpenAi/OpenAiChatComponent";
 
@@ -56,19 +57,20 @@ export const ClaimCreateComponent = () => {
               value={observation}
             />
           </FormControl>
-          <FormModal
+          <DrawerComponent
             buttonToOpenText="¿ Necesita alguna sugerencia ?"
             headerText="Sugerencias para detallar un siniestro"
             isOpen={isOpen}
             onClose={onClose}
             onOpen={onOpen}
+            size="md"
             children={
               <OpenAIChatComponent
                 buttonDefaultQuestionText="Sugerencia de como detallar el reclamo de un siniestro"
                 handleSetMessage={onSetObservation}
               ></OpenAIChatComponent>
             }
-          ></FormModal>
+          ></DrawerComponent>
         </Stack>
       </CardBody>
     </Card>
