@@ -1,5 +1,3 @@
-// HoC -> withAlgo...  FUNCION
-
 import { Box, Button } from "@chakra-ui/react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth";
@@ -13,6 +11,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import { CancelationCertificateView } from "../../pages/Certificates/Cancelation/Cancelation";
 import { ClaimDetail } from "../../pages/Claims/ClaimDetail";
 import { Products } from "../../pages/Products";
+import { Contract } from "../../pages/Contract/Contract";
+import Ofertas from "../Products/OfertasComponent";
+import { Planes } from "../../pages/Products/Planes";
 
 const Layout = ({ children }: any) => {
   const { isLoggedIn } = useAuth();
@@ -60,6 +61,9 @@ const Layout = ({ children }: any) => {
 
             <Route path="*" element={<Navigate to="/certificates" replace />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/planes" element={<Planes />} />
+            <Route path="/ofertas" element={<Ofertas />} />
+            <Route path="/contract" element={<Contract />} />
           </Routes>
         </Box>
         {isLoggedIn() && (

@@ -146,7 +146,7 @@ export default function PremiumPlanComponent() {
                     ))}
                   </List>
                   <Box w="80%" pt={7}>
-                    <Link as={RouterLink} to={"/FormularioContrato"}>
+                    <Link as={RouterLink} to={"/Contract"}>
                       <Button
                         w="full"
                         colorScheme="red"

@@ -1,7 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import OfertasComponent from "../../components/Products/OfertasComponent";
 
-export const Products = () => {
+export const Ofertas = () => {
   return (
     <>
       <SimpleGrid column={1} spacing="5">
