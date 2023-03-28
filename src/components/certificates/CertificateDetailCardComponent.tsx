@@ -15,7 +15,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Text, Image } from "@chakra-ui/react";
-import { FaFilePdf, FaShieldAlt, FaTimes } from "react-icons/fa";
+import {
+  FaFileDownload,
+  FaFilePdf,
+  FaShieldAlt,
+  FaTimes,
+} from "react-icons/fa";
 import LoremIpsum from "react-lorem-ipsum";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -82,8 +87,7 @@ export const CertificateDetailCardComponent = ({
                   py={1}
                   textAlign={"left"}
                 >
-                  Poliza: {props.policyNumber} Certificado:{" "}
-                  {props.certNumber}
+                  Poliza: {props.policyNumber} Certificado: {props.certNumber}
                 </Text>
                 <Text
                   fontSize="md"
@@ -103,19 +107,7 @@ export const CertificateDetailCardComponent = ({
                 display={"flex"}
                 justifyContent={{ base: "left", md: "right" }}
               >
-                  <Tooltip label="Descargar Certificado">
-                <IconButton
-                  size={"sm"}
-                  ml={2}
-                  variant="outline"
-                  colorScheme="blue"
-                  aria-label="Call Sage"
-                  fontSize="20px"
-                  icon={<FaFilePdf />}
-                />
-                </Tooltip>
-                <Link as={RouterLink} to={`${props.certNumber}/cancelation`}>
-                <Tooltip label="Cancelar Certificado">
+                <Tooltip label="Descargar Certificado">
                   <IconButton
                     size={"sm"}
                     ml={2}
@@ -123,23 +115,34 @@ export const CertificateDetailCardComponent = ({
                     colorScheme="blue"
                     aria-label="Call Sage"
                     fontSize="20px"
-                    icon={<FaTimes />}
+                    icon={<FaFilePdf />}
                   />
+                </Tooltip>
+                <Link as={RouterLink} to={`${props.certNumber}/cancelation`}>
+                  <Tooltip label="Cancelar Certificado">
+                    <IconButton
+                      size={"sm"}
+                      ml={2}
+                      variant="outline"
+                      colorScheme="blue"
+                      aria-label="Call Sage"
+                      fontSize="20px"
+                      icon={<FaTimes />}
+                    />
                   </Tooltip>
                 </Link>
                 <Link as={RouterLink} to={`${props.certNumber}/createclaim`}>
                   <Tooltip label="Crear Siniestro">
-                  <IconButton
-                    size={"sm"}
-                    ml={2}
-                    variant="outline"
-                    colorScheme="red"
-                    aria-label="Call Sage"
-                    fontSize="20px"
-                    icon={<FaShieldAlt />}
-                  />
+                    <IconButton
+                      size={"sm"}
+                      ml={2}
+                      variant="outline"
+                      colorScheme="red"
+                      aria-label="Call Sage"
+                      fontSize="20px"
+                      icon={<FaShieldAlt />}
+                    />
                   </Tooltip>
-
                 </Link>
               </Box>
             </SimpleGrid>
@@ -150,28 +153,27 @@ export const CertificateDetailCardComponent = ({
                   <Alert bg={boxBg}>
                     <AlertIcon />
                     <SimpleGrid>
-                      <SimpleGrid
-                        display="flex"
-                        justifyContent={"left"}
-                        spacing="2"
-                      >
-                        <Text
+                      <SimpleGrid columns={{ sm: 1, md: 3, lg: 3 }}>
+                        <Box
                           fontSize="md"
                           py={1}
                           textAlign={"left"}
                           fontStyle={"italic"}
                           color={mainText}
                           lineHeight="24px"
-                          pe="40px"
                           fontWeight="500"
-                          mb="auto"
+                          paddingInline={"0"}
                         >
-                          Nro Reclamo:
-                          <Link as={RouterLink} color={"blue.400"} to={`/claims/${props.claimNumber}`}>
+                          Reclamo:
+                          <Link
+                            as={RouterLink}
+                            color={"blue.400"}
+                            to={`/claims/${props.claimNumber}`}
+                          >
                             #{props.claimNumber}
                           </Link>
-                        </Text>
-                        <Text
+                        </Box>
+                        <Box
                           fontSize="md"
                           py={1}
                           textAlign={"left"}
@@ -180,10 +182,34 @@ export const CertificateDetailCardComponent = ({
                           lineHeight="24px"
                           pe="40px"
                           fontWeight="500"
-                          mb="auto"
+                          paddingInline={"0"}
                         >
-                          Cobertura: {props.coverageCode}
-                        </Text>
+                          <Text>Cobertura: {props.coverageCode}</Text>
+                        </Box>
+                        <Box
+                          fontSize="md"
+                          py={1}
+                          textAlign={"left"}
+                          fontStyle={"italic"}
+                          color={mainText}
+                          lineHeight="24px"
+                          pe="40px"
+                          fontWeight="500"
+                          paddingInline={"0"}
+                        >
+                          Descargar liquidación
+                          <Tooltip label="Descargar Liquidación">
+                            <IconButton
+                              size={"sm"}
+                              ml={2}
+                              variant="outline"
+                              colorScheme="blue"
+                              aria-label="Call Sage"
+                              fontSize="20px"
+                              icon={<FaFileDownload />}
+                            />
+                          </Tooltip>
+                        </Box>
                       </SimpleGrid>
                       <SimpleGrid spacing={1}>
                         <Text

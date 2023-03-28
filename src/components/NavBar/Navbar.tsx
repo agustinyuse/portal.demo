@@ -16,10 +16,7 @@ import { Image } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth";
 
-const Links = [
-  { name: "Certificados", to: "certificates" },
-  { name: "Planes", to: "products" },
-];
+const Links = [{ name: "Certificados", to: "certificates" }];
 
 const NavLink = ({ children, ...props }: any) => (
   <Link

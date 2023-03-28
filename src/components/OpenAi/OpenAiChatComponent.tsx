@@ -5,19 +5,26 @@ import {
   Box,
   Button,
   Input,
+  SimpleGrid,
   Spinner,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import { IChat, useOpenAIChat } from "../../hooks/useOpenAIChat";
 
+export interface IButtonsDefaultQuestionText {
+  id: number;
+  value: string;
+  valueToShow: string;
+}
+
 interface openAIChatComponent {
-  buttonDefaultQuestionText: string;
+  buttonsDefaultQuestionText: IButtonsDefaultQuestionText[];
   handleSetMessage: (value: string) => void;
 }
 
 export const OpenAIChatComponent = ({
-  buttonDefaultQuestionText,
+  buttonsDefaultQuestionText,
   handleSetMessage,
 }: openAIChatComponent) => {
   const {
@@ -32,19 +39,30 @@ export const OpenAIChatComponent = ({
 
   return (
     <>
-      <Box>
-        <Button
-          colorScheme="blue"
-          rightIcon={<ArrowForwardIcon />}
-          size="sm"
-          display={"flex"}
-          whiteSpace={"inherit"}
-          height={"50px"}
-          onClick={() => defaultQuestion(buttonDefaultQuestionText)}
-        >
-          <Text lineHeight={1}>{buttonDefaultQuestionText}</Text>
-        </Button>
-      </Box>
+      <SimpleGrid column={1} spacingY="2">
+        {buttonsDefaultQuestionText &&
+          buttonsDefaultQuestionText.map(
+            (buttonDefaultQuestionText: IButtonsDefaultQuestionText) => (
+              <Button
+                key={buttonDefaultQuestionText.id}
+                colorScheme="blue"
+                rightIcon={<ArrowForwardIcon />}
+                size="sm"
+                display={"flex"}
+                whiteSpace={"inherit"}
+                height={"50px"}
+                onClick={() => defaultQuestion(buttonDefaultQuestionText.value)}
+              >
+                <Text
+                  lineHeight={1}
+                  key={`text-${buttonDefaultQuestionText.id}`}
+                >
+                  {buttonDefaultQuestionText.valueToShow}
+                </Text>
+              </Button>
+            )
+          )}
+      </SimpleGrid>
       <Stack mt={5}>
         {messages &&
           messages.map((message: IChat, i: any) => (
