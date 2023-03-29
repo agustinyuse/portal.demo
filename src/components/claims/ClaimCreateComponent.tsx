@@ -146,10 +146,12 @@ export const ClaimCreateComponent = () => {
                   Detalle del siniestro
                 </FormLabel>
                 <Textarea
+                  h={300}
                   name="observation"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   id="observation"
+                  placeholder="Ingrese detalles del siniestro"
                   value={formik.values.observation}
                 />
               </FormControl>

@@ -79,8 +79,13 @@ export const CancelationCertificateView = () => {
 
                     return errors;
                   }
-                  if(values.cancelationReasonId == 7 && (!values.cancelationObservation || values.cancelationObservation === "")){
-                    errors.cancelationObservation = "Debe ingresar un comentario";
+                  if (
+                    values.cancelationReasonId == 7 &&
+                    (!values.cancelationObservation ||
+                      values.cancelationObservation === "")
+                  ) {
+                    errors.cancelationObservation =
+                      "Debe ingresar un comentario";
                     return errors;
                   }
                   return errors;
@@ -136,23 +141,27 @@ export const CancelationCertificateView = () => {
                       </FormControl>
 
                       {values.cancelationReasonId == 7 && (
-                        <FormControl  isInvalid={
-                          values.cancelationReasonId == 7 &&
-                          touched.cancelationObservation
-                        }>
+                        <FormControl
+                          isInvalid={
+                            values.cancelationReasonId == 7 &&
+                            touched.cancelationObservation
+                          }
+                        >
                           <FormLabel htmlFor="cancelationObservation">
                             Observación
                           </FormLabel>
                           <Textarea
+                            h={300}
+                            placeholder="Puede detallar el mótivo de la cancelación"
                             name="cancelationObservation"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             id="cancelationObservation"
                             value={values.cancelationObservation}
                           />
-                        <FormErrorMessage>
-                         Debe ingresar un comentario
-                        </FormErrorMessage>
+                          <FormErrorMessage>
+                            Debe ingresar un comentario
+                          </FormErrorMessage>
                         </FormControl>
                       )}
 
