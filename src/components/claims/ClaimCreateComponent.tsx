@@ -102,7 +102,7 @@ export const ClaimCreateComponent = () => {
   return (
     <Card>
       <CardBody>
-        <Stack divider={<StackDivider />} spacing="4">
+        <Stack spacing="4">
           <form onSubmit={formik.handleSubmit}>
             <Stack spacing="5">
               <FormControl
@@ -153,11 +153,6 @@ export const ClaimCreateComponent = () => {
                   value={formik.values.observation}
                 />
               </FormControl>
-              <Box display={"flex"} justifyContent={"right"}>
-                <Button as="button" type="submit" colorScheme="blue">
-                  Enviar
-                </Button>
-              </Box>
             </Stack>
           </form>
           <DrawerComponent
