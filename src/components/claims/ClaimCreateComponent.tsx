@@ -51,7 +51,7 @@ const coverages = [
   },
   {
     id: 3,
-    value: "INVALIDEZ TOTAL Y PERMANENTE POR ACCIDENTE",
+    value: "Invalidez total y permanente por accidente",
   },
 ];
 
