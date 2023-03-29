@@ -129,7 +129,7 @@ export const ClaimCreateComponent = () => {
                 </FormErrorMessage>
               </FormControl>
               <FormControl>
-                <FormLabel htmlFor="dateTime">Contraseña</FormLabel>
+                <FormLabel htmlFor="dateTime">Fecha de ocurrencia</FormLabel>
                 <Input
                   type="date"
                   name="dateTime"
