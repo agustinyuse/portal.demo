@@ -12,9 +12,18 @@ import {
   Stack,
   StackDivider,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 export const AccordionFAQSComponent = () => {
+  let headingAccordionBg = useColorModeValue("gray.50", "0");
+  let headdingAccordionTextColor = useColorModeValue("gray.700", "#ffffffeb");
+  let headingAccordionHoverBg = useColorModeValue("gray.100", "whiteAlpha.100");
+
+  const accordionHeading = {
+    backgroundColor: headingAccordionBg,
+  };
+
   return (
     <Card boxShadow={0}>
       <CardHeader>
@@ -28,13 +37,23 @@ export const AccordionFAQSComponent = () => {
       </CardHeader>
 
       <CardBody>
-        <Stack divider={<StackDivider />} spacing="4">
+        <Stack spacing="4">
           <Accordion defaultIndex={[0]}>
-            <AccordionItem p={5}>
+            <AccordionItem
+              p={5}
+              sx={accordionHeading}
+              _hover={{ backgroundColor: headingAccordionHoverBg }}
+            >
+              {" "}
               <h2>
-                <AccordionButton>
+                <AccordionButton
+                  _hover={{
+                    background: "",
+                    color: "",
+                  }}
+                >
                   <Box as="span" flex="1" textAlign="left">
-                    <Heading size="md">
+                    <Heading size="md" color={headdingAccordionTextColor}>
                       {" "}
                       ¿Cuanto demora la resolución del Sinietro?
                     </Heading>
@@ -50,9 +69,19 @@ export const AccordionFAQSComponent = () => {
               </AccordionPanel>
             </AccordionItem>
 
-            <AccordionItem p={5}>
+            <AccordionItem
+              p={5}
+              sx={accordionHeading}
+              _hover={{ backgroundColor: headingAccordionHoverBg }}
+            >
               <h2>
-                <AccordionButton>
+                <AccordionButton
+                  p={3}
+                  _hover={{
+                    background: "",
+                    color: "",
+                  }}
+                >
                   <Box as="span" flex="1" textAlign="left">
                     <Heading size="md">
                       ¿En donde se me va a acreditar la indemnización en caso
@@ -69,11 +98,23 @@ export const AccordionFAQSComponent = () => {
                 nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
-            <AccordionItem p={5}>
+            <AccordionItem
+              p={5}
+              sx={accordionHeading}
+              _hover={{
+                background: headingAccordionHoverBg,
+              }}
+            >
               <h2>
-                <AccordionButton>
+                <AccordionButton
+                  p={3}
+                  _hover={{
+                    background: "",
+                    color: "",
+                  }}
+                >
                   <Box as="span" flex="1" textAlign="left">
-                    <Heading size="md">
+                    <Heading size="md" color={headdingAccordionTextColor}>
                       ¿Que pasa sino tengo toda la documentación en este
                       momento?
                     </Heading>
