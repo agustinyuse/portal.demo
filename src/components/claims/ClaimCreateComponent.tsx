@@ -60,6 +60,8 @@ export const ClaimCreateComponent = () => {
     IButtonsDefaultQuestionText[]
   >([]);
 
+  const [showAIComponent, setShowAiComponent] = useState<boolean>();
+
   const formik = useFormik({
     initialValues: { coverageId: 0, dateTime: "", observation: "" },
     onSubmit: (values, { setSubmitting }) => {
@@ -97,7 +99,13 @@ export const ClaimCreateComponent = () => {
     );
 
     setButtonsDefaultQuestionText([...newButtonsDefaultQuestionText]);
-  }, [formik.values.coverageId]); // La dependencia es "miPropiedad"
+  }, [formik.values.coverageId]);
+
+  useEffect(() => {
+    if (formik.values.observation.length > 5) {
+      setShowAiComponent(true);
+    }
+  }, [formik.values.observation]);
 
   return (
     <Card>
@@ -157,20 +165,22 @@ export const ClaimCreateComponent = () => {
               </FormControl>
             </Stack>
           </form>
-          <DrawerComponent
-            buttonToOpenText="¿ Necesitas asistencia ?"
-            headerText="Asistencia para detallar el siniestro"
-            isOpen={isOpen}
-            onClose={onClose}
-            onOpen={onOpen}
-            size="md"
-            children={
-              <OpenAIChatComponent
-                buttonsDefaultQuestionText={buttonsDefaultQuestionText}
-                handleSetMessage={onSetObservation}
-              ></OpenAIChatComponent>
-            }
-          ></DrawerComponent>
+          {showAIComponent && (
+            <DrawerComponent
+              buttonToOpenText="¿ Necesitas asistencia ?"
+              headerText="Asistencia para detallar el siniestro"
+              isOpen={isOpen}
+              onClose={onClose}
+              onOpen={onOpen}
+              size="md"
+              children={
+                <OpenAIChatComponent
+                  buttonsDefaultQuestionText={buttonsDefaultQuestionText}
+                  handleSetMessage={onSetObservation}
+                ></OpenAIChatComponent>
+              }
+            ></DrawerComponent>
+          )}
         </Stack>
       </CardBody>
     </Card>
