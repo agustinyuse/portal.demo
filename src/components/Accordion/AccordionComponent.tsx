@@ -123,7 +123,40 @@ export const AccordionFAQSComponent = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                ¿A donde me puedo contactar si tengo dudas?
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem
+              p={5}
+              sx={accordionHeading}
+              _hover={{
+                background: headingAccordionHoverBg,
+              }}
+            >
+              <h2>
+                <AccordionButton
+                  p={3}
+                  _hover={{
+                    background: "",
+                    color: "",
+                  }}
+                >
+                  <Box as="span" flex="1" textAlign="left">
+                    <Heading size="md" color={headdingAccordionTextColor}>
+                      ¿A donde me puedo contactar si tengo dudas?
+                    </Heading>
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
