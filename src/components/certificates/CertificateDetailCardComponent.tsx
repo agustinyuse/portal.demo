@@ -54,7 +54,7 @@ export const CertificateDetailCardComponent = ({
         <CardBody>
           <SimpleGrid spacing={2}>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
-              <Box justifyContent={"left"}>
+              <Box justifyContent={"left"} w={"xl"}>
                 <Heading size="md" textAlign={"left"}>
                   <Image
                     objectFit="cover"
