@@ -118,9 +118,7 @@ export const ClaimCreateComponent = () => {
                   !!formik.errors.coverageId && formik.touched.coverageId
                 }
               >
-                <FormLabel htmlFor="coverageId">
-                  Motivo de cancelación
-                </FormLabel>
+                <FormLabel htmlFor="coverageId">Cobertura</FormLabel>
                 <Select
                   id="coverageId"
                   placeholder="Selecciona una cobertura"
