@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://portalautogestionapi.azurewebsites.net",
+  baseURL: "https://demochatgpt.onrender.com",
 });
 
 export const getAll = () => {
